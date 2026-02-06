@@ -1,0 +1,866 @@
+[
+  {
+    "id": "lagos-portugal",
+    "name": "Lagos",
+    "region_id": "algarve-portugal",
+    "region_name": "Algarve Coast, Portugal",
+    "environment": [
+      "beach",
+      "urban",
+      "nature"
+    ],
+    "activities": [
+      "surfing",
+      "beach_activities",
+      "kayaking",
+      "hiking",
+      "nightlife"
+    ],
+    "style": [
+      "adventure",
+      "party",
+      "budget-friendly"
+    ],
+    "budget_range": [
+      70,
+      110
+    ],
+    "nightlife_score": 4,
+    "family_friendly": 3,
+    "culture_score": 3,
+    "best_for": "Groups wanting beach + adventure + nightlife"
+  },
+  {
+    "id": "albufeira-portugal",
+    "name": "Albufeira",
+    "region_id": "algarve-portugal",
+    "region_name": "Algarve Coast, Portugal",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "beach_activities",
+      "nightlife",
+      "water_parks",
+      "swimming"
+    ],
+    "style": [
+      "party",
+      "relaxing",
+      "budget-friendly"
+    ],
+    "budget_range": [
+      65,
+      115
+    ],
+    "nightlife_score": 5,
+    "family_friendly": 4,
+    "culture_score": 2,
+    "best_for": "Party groups and families seeking beach fun"
+  },
+  {
+    "id": "sagres-portugal",
+    "name": "Sagres",
+    "region_id": "algarve-portugal",
+    "region_name": "Algarve Coast, Portugal",
+    "environment": [
+      "beach",
+      "nature",
+      "wilderness"
+    ],
+    "activities": [
+      "surfing",
+      "hiking",
+      "beach_activities",
+      "photography"
+    ],
+    "style": [
+      "adventure",
+      "relaxing",
+      "budget-friendly"
+    ],
+    "budget_range": [
+      60,
+      100
+    ],
+    "nightlife_score": 1,
+    "family_friendly": 3,
+    "culture_score": 2,
+    "best_for": "Surfers and nature lovers seeking tranquility"
+  },
+  {
+    "id": "vilamoura-portugal",
+    "name": "Vilamoura",
+    "region_id": "algarve-portugal",
+    "region_name": "Algarve Coast, Portugal",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "golf",
+      "beach_activities",
+      "marina",
+      "restaurants"
+    ],
+    "style": [
+      "luxury",
+      "relaxing",
+      "culinary"
+    ],
+    "budget_range": [
+      90,
+      150
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 5,
+    "culture_score": 2,
+    "best_for": "Upscale travelers wanting golf and marina life"
+  },
+  {
+    "id": "tavira-portugal",
+    "name": "Tavira",
+    "region_id": "algarve-portugal",
+    "region_name": "Algarve Coast, Portugal",
+    "environment": [
+      "beach",
+      "countryside",
+      "urban"
+    ],
+    "activities": [
+      "beach_activities",
+      "historical_sites",
+      "restaurants",
+      "cycling"
+    ],
+    "style": [
+      "cultural",
+      "relaxing",
+      "budget-friendly"
+    ],
+    "budget_range": [
+      55,
+      95
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 5,
+    "culture_score": 4,
+    "best_for": "Families and culture seekers wanting authentic Portugal"
+  },
+  {
+    "id": "barcelona-spain",
+    "name": "Barcelona",
+    "region_id": "barcelona-costa-brava",
+    "region_name": "Barcelona & Costa Brava",
+    "environment": [
+      "urban",
+      "beach"
+    ],
+    "activities": [
+      "gaudi",
+      "museums",
+      "beach_activities",
+      "restaurants",
+      "nightlife",
+      "shopping"
+    ],
+    "style": [
+      "cultural",
+      "party",
+      "culinary"
+    ],
+    "budget_range": [
+      90,
+      200
+    ],
+    "nightlife_score": 5,
+    "family_friendly": 4,
+    "culture_score": 5,
+    "best_for": "Urban explorers wanting art, food, and nightlife"
+  },
+  {
+    "id": "tossa-de-mar-spain",
+    "name": "Tossa de Mar",
+    "region_id": "barcelona-costa-brava",
+    "region_name": "Barcelona & Costa Brava",
+    "environment": [
+      "beach",
+      "nature"
+    ],
+    "activities": [
+      "beach_activities",
+      "medieval_walls",
+      "hiking",
+      "snorkeling"
+    ],
+    "style": [
+      "relaxing",
+      "cultural",
+      "adventure"
+    ],
+    "budget_range": [
+      70,
+      140
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 5,
+    "culture_score": 4,
+    "best_for": "Families seeking charming medieval coastal town"
+  },
+  {
+    "id": "girona-spain",
+    "name": "Girona",
+    "region_id": "barcelona-costa-brava",
+    "region_name": "Barcelona & Costa Brava",
+    "environment": [
+      "urban",
+      "countryside"
+    ],
+    "activities": [
+      "old_town",
+      "museums",
+      "restaurants",
+      "jewish_quarter"
+    ],
+    "style": [
+      "cultural",
+      "culinary"
+    ],
+    "budget_range": [
+      70,
+      150
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 5,
+    "culture_score": 5,
+    "best_for": "Culture seekers wanting medieval charm"
+  },
+  {
+    "id": "cadaques-spain",
+    "name": "Cadaqu\u00e9s",
+    "region_id": "barcelona-costa-brava",
+    "region_name": "Barcelona & Costa Brava",
+    "environment": [
+      "beach",
+      "nature"
+    ],
+    "activities": [
+      "beach_activities",
+      "art",
+      "hiking",
+      "dali_museum"
+    ],
+    "style": [
+      "relaxing",
+      "cultural"
+    ],
+    "budget_range": [
+      80,
+      160
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 4,
+    "culture_score": 5,
+    "best_for": "Artists and romantics seeking pristine white villages"
+  },
+  {
+    "id": "sitges-spain",
+    "name": "Sitges",
+    "region_id": "barcelona-costa-brava",
+    "region_name": "Barcelona & Costa Brava",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "beach_activities",
+      "nightlife",
+      "carnival",
+      "museums"
+    ],
+    "style": [
+      "party",
+      "relaxing",
+      "cultural"
+    ],
+    "budget_range": [
+      80,
+      170
+    ],
+    "nightlife_score": 5,
+    "family_friendly": 3,
+    "culture_score": 4,
+    "best_for": "LGBTQ+ travelers and beach party seekers"
+  },
+  {
+    "id": "dubrovnik-croatia",
+    "name": "Dubrovnik",
+    "region_id": "croatian-coast",
+    "region_name": "Croatian Dalmatian Coast",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "old_town",
+      "city_walls",
+      "game_of_thrones",
+      "kayaking",
+      "island_tours"
+    ],
+    "style": [
+      "cultural",
+      "adventure"
+    ],
+    "budget_range": [
+      80,
+      160
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 4,
+    "culture_score": 5,
+    "best_for": "History lovers and GOT fans"
+  },
+  {
+    "id": "split-croatia",
+    "name": "Split",
+    "region_id": "croatian-coast",
+    "region_name": "Croatian Dalmatian Coast",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "diocletian_palace",
+      "beaches",
+      "island_hopping",
+      "nightlife"
+    ],
+    "style": [
+      "cultural",
+      "party",
+      "relaxing"
+    ],
+    "budget_range": [
+      60,
+      130
+    ],
+    "nightlife_score": 4,
+    "family_friendly": 4,
+    "culture_score": 5,
+    "best_for": "Budget travelers wanting culture and beach"
+  },
+  {
+    "id": "hvar-croatia",
+    "name": "Hvar",
+    "region_id": "croatian-coast",
+    "region_name": "Croatian Dalmatian Coast",
+    "environment": [
+      "beach",
+      "nature"
+    ],
+    "activities": [
+      "beach_clubs",
+      "nightlife",
+      "lavender_fields",
+      "boat_tours"
+    ],
+    "style": [
+      "party",
+      "luxury",
+      "relaxing"
+    ],
+    "budget_range": [
+      90,
+      180
+    ],
+    "nightlife_score": 5,
+    "family_friendly": 2,
+    "culture_score": 3,
+    "best_for": "Young travelers seeking Adriatic party scene"
+  },
+  {
+    "id": "zadar-croatia",
+    "name": "Zadar",
+    "region_id": "croatian-coast",
+    "region_name": "Croatian Dalmatian Coast",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "sea_organ",
+      "sun_salutation",
+      "old_town",
+      "beaches"
+    ],
+    "style": [
+      "cultural",
+      "relaxing",
+      "budget-friendly"
+    ],
+    "budget_range": [
+      50,
+      110
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 5,
+    "culture_score": 4,
+    "best_for": "Budget-conscious culture seekers"
+  },
+  {
+    "id": "korcula-croatia",
+    "name": "Kor\u010dula",
+    "region_id": "croatian-coast",
+    "region_name": "Croatian Dalmatian Coast",
+    "environment": [
+      "beach",
+      "nature"
+    ],
+    "activities": [
+      "medieval_town",
+      "wine_tasting",
+      "beaches",
+      "cycling"
+    ],
+    "style": [
+      "relaxing",
+      "cultural",
+      "culinary"
+    ],
+    "budget_range": [
+      60,
+      120
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 5,
+    "culture_score": 5,
+    "best_for": "Wine lovers and history buffs seeking quieter islands"
+  },
+  {
+    "id": "interlaken-swiss",
+    "name": "Interlaken",
+    "region_id": "swiss-alps",
+    "region_name": "Swiss Alps",
+    "environment": [
+      "mountains",
+      "nature"
+    ],
+    "activities": [
+      "paragliding",
+      "hiking",
+      "skiing",
+      "canyoning",
+      "scenic_trains"
+    ],
+    "style": [
+      "adventure",
+      "relaxing"
+    ],
+    "budget_range": [
+      140,
+      280
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 5,
+    "culture_score": 2,
+    "best_for": "Adventure seekers wanting mountain thrills"
+  },
+  {
+    "id": "zermatt-swiss",
+    "name": "Zermatt",
+    "region_id": "swiss-alps",
+    "region_name": "Swiss Alps",
+    "environment": [
+      "mountains",
+      "nature"
+    ],
+    "activities": [
+      "skiing",
+      "hiking",
+      "mountaineering",
+      "glacier_tours"
+    ],
+    "style": [
+      "adventure",
+      "luxury"
+    ],
+    "budget_range": [
+      180,
+      350
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 4,
+    "culture_score": 2,
+    "best_for": "Serious skiers and mountain enthusiasts"
+  },
+  {
+    "id": "grindelwald-swiss",
+    "name": "Grindelwald",
+    "region_id": "swiss-alps",
+    "region_name": "Swiss Alps",
+    "environment": [
+      "mountains",
+      "nature"
+    ],
+    "activities": [
+      "hiking",
+      "skiing",
+      "scenic_trains",
+      "first_cliff_walk"
+    ],
+    "style": [
+      "adventure",
+      "relaxing"
+    ],
+    "budget_range": [
+      130,
+      270
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 5,
+    "culture_score": 2,
+    "best_for": "Families wanting accessible mountain beauty"
+  },
+  {
+    "id": "lucerne-swiss",
+    "name": "Lucerne",
+    "region_id": "swiss-alps",
+    "region_name": "Swiss Alps",
+    "environment": [
+      "urban",
+      "mountains",
+      "nature"
+    ],
+    "activities": [
+      "boat_tours",
+      "museums",
+      "hiking",
+      "scenic_trains"
+    ],
+    "style": [
+      "cultural",
+      "relaxing",
+      "adventure"
+    ],
+    "budget_range": [
+      150,
+      300
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 5,
+    "culture_score": 4,
+    "best_for": "Those wanting culture + mountains in one place"
+  },
+  {
+    "id": "stmoritz-swiss",
+    "name": "St. Moritz",
+    "region_id": "swiss-alps",
+    "region_name": "Swiss Alps",
+    "environment": [
+      "mountains",
+      "nature"
+    ],
+    "activities": [
+      "skiing",
+      "shopping",
+      "spa",
+      "winter_sports"
+    ],
+    "style": [
+      "luxury",
+      "adventure",
+      "wellness"
+    ],
+    "budget_range": [
+      200,
+      400
+    ],
+    "nightlife_score": 4,
+    "family_friendly": 3,
+    "culture_score": 3,
+    "best_for": "Luxury travelers seeking world-class skiing and glamour"
+  },
+  {
+    "id": "ubud-bali",
+    "name": "Ubud",
+    "region_id": "bali",
+    "region_name": "Bali, Indonesia",
+    "environment": [
+      "nature",
+      "countryside"
+    ],
+    "activities": [
+      "yoga",
+      "temples",
+      "rice_terraces",
+      "monkey_forest",
+      "art"
+    ],
+    "style": [
+      "wellness",
+      "cultural",
+      "relaxing"
+    ],
+    "budget_range": [
+      35,
+      90
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 4,
+    "culture_score": 5,
+    "best_for": "Wellness and culture seekers"
+  },
+  {
+    "id": "seminyak-bali",
+    "name": "Seminyak",
+    "region_id": "bali",
+    "region_name": "Bali, Indonesia",
+    "environment": [
+      "beach",
+      "urban"
+    ],
+    "activities": [
+      "beach_clubs",
+      "surfing",
+      "shopping",
+      "restaurants",
+      "nightlife"
+    ],
+    "style": [
+      "party",
+      "luxury",
+      "relaxing"
+    ],
+    "budget_range": [
+      50,
+      120
+    ],
+    "nightlife_score": 5,
+    "family_friendly": 2,
+    "culture_score": 2,
+    "best_for": "Beach club and party seekers"
+  },
+  {
+    "id": "canggu-bali",
+    "name": "Canggu",
+    "region_id": "bali",
+    "region_name": "Bali, Indonesia",
+    "environment": [
+      "beach",
+      "countryside"
+    ],
+    "activities": [
+      "surfing",
+      "yoga",
+      "beach_clubs",
+      "rice_fields"
+    ],
+    "style": [
+      "adventure",
+      "wellness",
+      "budget-friendly"
+    ],
+    "budget_range": [
+      40,
+      95
+    ],
+    "nightlife_score": 3,
+    "family_friendly": 3,
+    "culture_score": 3,
+    "best_for": "Digital nomads and surfers"
+  },
+  {
+    "id": "nusa-penida-bali",
+    "name": "Nusa Penida",
+    "region_id": "bali",
+    "region_name": "Bali, Indonesia",
+    "environment": [
+      "beach",
+      "nature",
+      "wilderness"
+    ],
+    "activities": [
+      "diving",
+      "snorkeling",
+      "cliff_views",
+      "photography"
+    ],
+    "style": [
+      "adventure"
+    ],
+    "budget_range": [
+      30,
+      70
+    ],
+    "nightlife_score": 1,
+    "family_friendly": 3,
+    "culture_score": 2,
+    "best_for": "Adventure seekers wanting dramatic landscapes"
+  },
+  {
+    "id": "uluwatu-bali",
+    "name": "Uluwatu",
+    "region_id": "bali",
+    "region_name": "Bali, Indonesia",
+    "environment": [
+      "beach",
+      "nature"
+    ],
+    "activities": [
+      "surfing",
+      "cliff_temples",
+      "beach_clubs",
+      "kecak_dance"
+    ],
+    "style": [
+      "adventure",
+      "cultural",
+      "relaxing"
+    ],
+    "budget_range": [
+      45,
+      100
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 3,
+    "culture_score": 4,
+    "best_for": "Surfers and temple lovers"
+  },
+  {
+    "id": "el-chalten",
+    "name": "El Chalt\u00e9n",
+    "region_id": "patagonia",
+    "region_name": "Patagonia (Argentina/Chile)",
+    "environment": [
+      "mountains",
+      "wilderness"
+    ],
+    "activities": [
+      "trekking",
+      "fitz_roy",
+      "glaciers",
+      "hiking"
+    ],
+    "style": [
+      "adventure"
+    ],
+    "budget_range": [
+      60,
+      130
+    ],
+    "nightlife_score": 1,
+    "family_friendly": 2,
+    "culture_score": 1,
+    "best_for": "Serious hikers seeking Fitz Roy"
+  },
+  {
+    "id": "el-calafate",
+    "name": "El Calafate",
+    "region_id": "patagonia",
+    "region_name": "Patagonia (Argentina/Chile)",
+    "environment": [
+      "nature",
+      "wilderness"
+    ],
+    "activities": [
+      "perito_moreno_glacier",
+      "glacier_trekking",
+      "boat_tours"
+    ],
+    "style": [
+      "adventure"
+    ],
+    "budget_range": [
+      70,
+      150
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 4,
+    "culture_score": 2,
+    "best_for": "Glacier enthusiasts"
+  },
+  {
+    "id": "torres-del-paine",
+    "name": "Torres del Paine",
+    "region_id": "patagonia",
+    "region_name": "Patagonia (Argentina/Chile)",
+    "environment": [
+      "mountains",
+      "wilderness"
+    ],
+    "activities": [
+      "trekking",
+      "w_circuit",
+      "wildlife",
+      "photography"
+    ],
+    "style": [
+      "adventure"
+    ],
+    "budget_range": [
+      80,
+      170
+    ],
+    "nightlife_score": 1,
+    "family_friendly": 2,
+    "culture_score": 1,
+    "best_for": "Multi-day trekkers seeking iconic Patagonia"
+  },
+  {
+    "id": "ushuaia",
+    "name": "Ushuaia",
+    "region_id": "patagonia",
+    "region_name": "Patagonia (Argentina/Chile)",
+    "environment": [
+      "mountains",
+      "wilderness"
+    ],
+    "activities": [
+      "end_of_world",
+      "hiking",
+      "beagle_channel",
+      "penguins"
+    ],
+    "style": [
+      "adventure"
+    ],
+    "budget_range": [
+      75,
+      160
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 4,
+    "culture_score": 3,
+    "best_for": "End of the world adventurers and Antarctica departure"
+  },
+  {
+    "id": "punta-arenas",
+    "name": "Punta Arenas",
+    "region_id": "patagonia",
+    "region_name": "Patagonia (Argentina/Chile)",
+    "environment": [
+      "urban",
+      "nature"
+    ],
+    "activities": [
+      "penguins",
+      "strait_of_magellan",
+      "museums",
+      "wildlife"
+    ],
+    "style": [
+      "adventure",
+      "cultural"
+    ],
+    "budget_range": [
+      60,
+      130
+    ],
+    "nightlife_score": 2,
+    "family_friendly": 4,
+    "culture_score": 3,
+    "best_for": "Penguin colonies and gateway to southern Patagonia"
+  }
+]
