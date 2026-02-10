@@ -73,17 +73,7 @@ def get_trip(trip_id):
     if trip_id not in TRIPS:
         return jsonify({"success": False, "error": "Trip not found"}), 404
     
-    # Send trip info without all participant details
-    trip_info = {
-        "id": TRIPS[trip_id]["id"],
-        "trip_type": TRIPS[trip_id]["trip_type"],
-        "duration_days": TRIPS[trip_id]["duration_days"],
-        "organizer_name": TRIPS[trip_id]["organizer_name"],
-        "participant_count": len(TRIPS[trip_id]["participants"]),
-        "status": TRIPS[trip_id]["status"]
-    }
-    
-    return jsonify({"success": True, "trip": trip_info})
+    return jsonify({"success": True, "trip": TRIPS[trip_id]})
 
 
 @app.route('/api/trip/<trip_id>/preferences', methods=['POST'])
