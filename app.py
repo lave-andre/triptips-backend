@@ -37,10 +37,10 @@ def create_trip():
     """
     Create a new trip
     Body: {
+        "trip_name": str,
         "organizer_name": str,
         "trip_type": str,
-        "duration_days": int,
-        "geographic_scope": str (optional - for organizer's preference)
+        "duration_days": int
     }
     """
     data = request.json
@@ -49,6 +49,7 @@ def create_trip():
     
     trip = {
         "id": trip_id,
+        "trip_name": data.get('trip_name', 'Untitled Trip'),
         "organizer_name": data.get('organizer_name'),
         "trip_type": data.get('trip_type'),
         "duration_days": data.get('duration_days'),
