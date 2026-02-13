@@ -84,7 +84,7 @@ class TravelMatcher:
 
             print(f"    ✅ Geographic match")
 
-            # Calculate score for this region (same as before)
+            # Calculate score for this region
             region_score = 0
             user_breakdown = []
 
@@ -119,6 +119,7 @@ class TravelMatcher:
                 user_budget_min, user_budget_max = user.get('budget_range', [50, 150])
                 region_budget_min, region_budget_max = region.get('budget_range', [50, 150])
 
+                # Check if ranges overlap
                 if user_budget_max >= region_budget_min and region_budget_max >= user_budget_min:
                     user_score += 5
                     match_reasons.append("Budget range compatible")
@@ -130,6 +131,7 @@ class TravelMatcher:
                 max_possible_score = 30
                 normalized_score = min(100, (user_score / 30) * 100) if user_score > 0 else 0
 
+                # Determine sentiment
                 if normalized_score >= 70:
                     sentiment = "Perfect for"
                 elif normalized_score >= 50:
@@ -146,8 +148,10 @@ class TravelMatcher:
                     "mismatch_reasons": mismatch_reasons[:2]
                 })
 
+            # Average score across users
             avg_score = region_score / len(users_preferences) if users_preferences else 0
 
+            # Only include if average score > 20 (threshold)
             if avg_score > 20:
                 scored_regions.append({
                     "region": region,
@@ -160,9 +164,118 @@ class TravelMatcher:
                     }
                 })
 
+        # Sort by score descending
         scored_regions.sort(key=lambda x: x['score'], reverse=True)
         print(f"🔚 Returning {len(scored_regions)} regions")
         return scored_regions[:10]
 
-    # --- all other methods (_extract_pros, _extract_cons, calculate_city_match, etc.) remain exactly the same as before ---
-    # (I'll include them in the full file below, but for brevity they are unchanged)
+    def calculate_city_match(self, region_id: str, users_preferences: List[Dict], trip_type: str = "friends_vacation") -> List[Dict]:
+        """
+        Calculate match scores for cities within a specific region.
+        """
+        # Find cities belonging to this region
+        region_cities = [c for c in self.cities if c.get('region_id') == region_id or c.get('region') == region_id]
+
+        if not region_cities:
+            return []
+
+        scored_cities = []
+        for city in region_cities:
+            city_score = 0
+            user_breakdown = []
+
+            for user in users_preferences:
+                user_score = 0
+                # Environment match
+                env_match = set(user.get('environment', [])) & set(city.get('environment', []))
+                if env_match:
+                    user_score += 10 * len(env_match)
+
+                # Activities match
+                act_match = set(user.get('activities', [])) & set(city.get('activities', []))
+                if act_match:
+                    user_score += 5 * len(act_match)
+
+                # Budget match
+                user_budget_min, user_budget_max = user.get('budget_range', [50, 150])
+                city_budget_min, city_budget_max = city.get('budget_range', [50, 150])
+                if user_budget_max >= city_budget_min and city_budget_max >= user_budget_min:
+                    user_score += 5
+
+                normalized_score = min(100, (user_score / 20) * 100) if user_score > 0 else 0
+
+                if normalized_score >= 70:
+                    sentiment = "Perfect for"
+                elif normalized_score >= 50:
+                    sentiment = "Good for"
+                else:
+                    sentiment = "Compromise for"
+
+                city_score += normalized_score
+                user_breakdown.append({
+                    "user_name": user.get('name', 'Anonymous'),
+                    "match_percentage": round(normalized_score, 1),
+                    "sentiment": sentiment
+                })
+
+            avg_score = city_score / len(users_preferences) if users_preferences else 0
+
+            scored_cities.append({
+                "city": city,
+                "score": avg_score,
+                "match_percentage": round(avg_score, 1),
+                "user_breakdown": user_breakdown,
+                "details": {
+                    "best_for": self._best_for(city, user_breakdown),
+                    "pros": self._city_pros(city, user_breakdown)
+                }
+            })
+
+        scored_cities.sort(key=lambda x: x['score'], reverse=True)
+        return scored_cities[:5]
+
+    def _extract_pros(self, region: Dict, user_breakdown: List[Dict]) -> List[str]:
+        """Extract top pros for a region based on user breakdown"""
+        pros = []
+        if region.get('environment'):
+            pros.append(f"{', '.join(region['environment'][:2])} environment")
+        if region.get('style'):
+            pros.append(f"{', '.join(region['style'][:2])} vibe")
+        if region.get('activities'):
+            pros.append(f"{', '.join(region['activities'][:2])} available")
+        if user_breakdown:
+            # Count how many users it's good for
+            good_count = sum(1 for u in user_breakdown if u['match_percentage'] >= 50)
+            pros.append(f"Good for {good_count}/{len(user_breakdown)} travelers")
+        return pros[:3]
+
+    def _extract_cons(self, region: Dict, user_breakdown: List[Dict]) -> List[str]:
+        """Extract top cons for a region"""
+        cons = []
+        if user_breakdown:
+            # Count how many users it's a compromise for
+            compromise_count = sum(1 for u in user_breakdown if u['match_percentage'] < 50)
+            if compromise_count > 0:
+                cons.append(f"Compromise for {compromise_count} traveler(s)")
+        return cons[:2]
+
+    def _best_for(self, city: Dict, user_breakdown: List[Dict]) -> str:
+        """Generate a short 'best for' description"""
+        tags = []
+        if city.get('style'):
+            tags.extend(city['style'][:2])
+        if city.get('environment'):
+            tags.extend(city['environment'][:1])
+        return f"{', '.join(tags)} seekers" if tags else "Versatile destination"
+
+    def _city_pros(self, city: Dict, user_breakdown: List[Dict]) -> List[str]:
+        """Extract city pros"""
+        pros = []
+        if city.get('environment'):
+            pros.append(f"{', '.join(city['environment'][:2])}")
+        if city.get('budget_range'):
+            pros.append(f"Budget: ${city['budget_range'][0]}-${city['budget_range'][1]}/day")
+        if user_breakdown:
+            good_count = sum(1 for u in user_breakdown if u['match_percentage'] >= 50)
+            pros.append(f"Matches {good_count}/{len(user_breakdown)} preferences")
+        return pros[:3]
