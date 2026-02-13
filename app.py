@@ -32,32 +32,38 @@ def health_check():
     return jsonify({"status": "healthy", "message": "Travel Matcher API is running"})
 
 
-@app.route('/api/trip/create', methods=['POST'])
+@app.route('/api/trip', methods=['POST'])
 def create_trip():
     """
     Create a new trip
     Body: {
         "trip_name": str,
         "organizer_name": str,
-        "trip_type": str,
-        "duration_days": int
+        "geographic_scope": str,
+        "organizer_preferences": {...}  (optional - organizer's preferences)
     }
     """
     data = request.json
     
     trip_id = str(uuid.uuid4())[:8]  # Short ID
     
+    # Create trip
     trip = {
         "id": trip_id,
         "trip_name": data.get('trip_name', 'Untitled Trip'),
         "organizer_name": data.get('organizer_name'),
-        "trip_type": data.get('trip_type'),
-        "duration_days": data.get('duration_days'),
+        "geographic_scope": data.get('geographic_scope', 'Anywhere'),
         "created_at": datetime.now().isoformat(),
         "status": "collecting_preferences",
         "participants": [],
         "results": None
     }
+    
+    # If organizer submitted preferences, add them as first participant
+    if 'organizer_preferences' in data:
+        organizer_prefs = data['organizer_preferences']
+        organizer_prefs['name'] = data.get('organizer_name')
+        trip['participants'].append(organizer_prefs)
     
     TRIPS[trip_id] = trip
     
@@ -83,12 +89,10 @@ def submit_preferences(trip_id):
     Submit user preferences for a trip
     Body: {
         "name": str,
-        "geographic_preference": str,
         "environment": [str],
         "style": [str],
         "activities": [str],
-        "budget_range": [int, int],
-        "climate": str
+        "budget_range": [int, int]
     }
     """
     if trip_id not in TRIPS:
@@ -99,12 +103,10 @@ def submit_preferences(trip_id):
     # Add participant
     participant = {
         "name": data.get('name'),
-        "geographic_preference": data.get('geographic_preference'),
         "environment": data.get('environment', []),
         "style": data.get('style', []),
         "activities": data.get('activities', []),
         "budget_range": data.get('budget_range', [50, 150]),
-        "climate": data.get('climate', 'flexible'),
         "submitted_at": datetime.now().isoformat()
     }
     
@@ -137,82 +139,98 @@ def calculate_matches(trip_id):
     
     trip = TRIPS[trip_id]
     
-    if len(trip['participants']) < 2:
+    if len(trip['participants']) < 1:
         return jsonify({
             "success": False,
-            "error": "Need at least 2 participants"
+            "error": "Need at least 1 participant"
         }), 400
     
-    # Analyze geographic preferences
-    from collections import Counter
-    geo_prefs = [p['geographic_preference'] for p in trip['participants']]
-    geo_counter = Counter(geo_prefs)
+    # Get geographic scope from trip
+    geographic_scope = trip.get('geographic_scope', 'Anywhere')
     
-    # Search across top geographic preferences
-    all_results = []
-    
-    # Get unique scopes (excluding "Anywhere")
-    scopes_to_search = [g for g in geo_counter.keys() if g != "Anywhere"]
-    if not scopes_to_search:
-        scopes_to_search = ["Europe", "Asia"]  # Default
-    
-    for scope in scopes_to_search[:3]:  # Top 3 geographic preferences
-        try:
-            results = MATCHER.calculate_region_match(
-                users_preferences=trip['participants'],
-                geographic_scope=scope,
-                trip_type=trip['trip_type']
-            )
-            all_results.extend(results[:3])  # Top 3 from each
-        except Exception as e:
-            print(f"Error calculating for {scope}: {e}")
-    
-    # Sort all results by score
-    all_results.sort(key=lambda x: x['score'], reverse=True)
-    
-    # Take top 7
-    top_results = all_results[:7]
-    
-    # Format for frontend
-    formatted_results = []
-    for r in top_results:
-        formatted_results.append({
-            "region_id": r['region']['id'],
-            "region_name": r['region']['name'],
-            "country": r['region']['country'],
-            "match_percentage": r['match_percentage'],
-            "budget_range": r['region'].get('budget_ranges', {}).get('moderate', [50, 150]),
-            "environment": r['region']['environment'],
-            "style": r['region']['style'],
-            "pros": r['details']['pros'],
-            "cons": r['details']['cons'],
-            "user_breakdown": [
-                {
-                    "name": ub['user_name'],
-                    "match_percentage": ub['match_percentage'],
-                    "sentiment": ub['sentiment'],
-                    "match_reasons": ub['match_reasons'][:3],
-                    "mismatch_reasons": ub['mismatch_reasons'][:2]
+    try:
+        results = MATCHER.calculate_region_match(
+            users_preferences=trip['participants'],
+            geographic_scope=geographic_scope,
+            trip_type="friends_vacation"
+        )
+        
+        # Take top 10
+        top_results = results[:10]
+        
+        # Format for frontend
+        formatted_results = []
+        for r in top_results:
+            # Get budget range from new structure
+            budget_ranges_obj = r['region'].get('budget_ranges', {})
+            if isinstance(budget_ranges_obj, dict):
+                budget_range = budget_ranges_obj.get('moderate', [50, 150])
+            else:
+                budget_range = [50, 150]
+            
+            # Get style from new structure
+            style_obj = r['region'].get('style', {})
+            if isinstance(style_obj, dict):
+                # Extract high-scoring styles
+                style_list = []
+                style_mappings = {
+                    'romantic_score': 'romantic',
+                    'adventure_level': 'adventure',
+                    'party_scene': 'party',
+                    'culture_richness': 'cultural',
+                    'nature_immersion': 'nature',
+                    'luxury_level': 'luxury'
                 }
-                for ub in r['user_breakdown']
-            ]
+                for key, tag in style_mappings.items():
+                    if style_obj.get(key, 0) >= 75:
+                        style_list.append(tag)
+                style = style_list
+            else:
+                style = style_obj if isinstance(style_obj, list) else []
+            
+            formatted_results.append({
+                "region_id": r['region']['id'],
+                "region_name": r['region']['name'],
+                "country": r['region']['country'],
+                "match_percentage": r['match_percentage'],
+                "budget_range": budget_range,
+                "environment": r['region'].get('environment', []),
+                "style": style,
+                "pros": r['details']['pros'],
+                "cons": r['details']['cons'],
+                "user_breakdown": [
+                    {
+                        "name": ub['user_name'],
+                        "match_percentage": ub['match_percentage'],
+                        "sentiment": ub['sentiment'],
+                        "match_reasons": ub.get('match_reasons', [])[:3],
+                        "mismatch_reasons": ub.get('mismatch_reasons', [])[:2]
+                    }
+                    for ub in r['user_breakdown']
+                ]
+            })
+        
+        # Save results
+        trip['results'] = {
+            "regions": formatted_results,
+            "geographic_scope": geographic_scope,
+            "calculated_at": datetime.now().isoformat()
+        }
+        trip['status'] = "results_ready"
+        
+        return jsonify({
+            "success": True,
+            "results": trip['results']
         })
-    
-    # Save results
-    trip['results'] = {
-        "regions": formatted_results,
-        "geographic_analysis": {
-            "preferences": dict(geo_counter),
-            "is_split": len(set(geo_prefs)) > 2
-        },
-        "calculated_at": datetime.now().isoformat()
-    }
-    trip['status'] = "results_ready"
-    
-    return jsonify({
-        "success": True,
-        "results": trip['results']
-    })
+        
+    except Exception as e:
+        print(f"❌ Error in calculate_matches: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
 
 
 @app.route('/api/trip/<trip_id>/vote', methods=['POST'])
@@ -276,7 +294,7 @@ def get_cities(trip_id):
         city_results = MATCHER.calculate_city_match(
             region_id=region_id,
             users_preferences=trip['participants'],
-            trip_type=trip['trip_type']
+            trip_type="friends_vacation"
         )
         
         # Format for frontend
@@ -285,7 +303,6 @@ def get_cities(trip_id):
             formatted_cities.append({
                 "city_name": c['city']['name'],
                 "match_percentage": c['match_percentage'],
-                "budget_range": c['city']['budget_range'],
                 "best_for": c['details']['best_for'],
                 "pros": c['details']['pros'],
                 "user_breakdown": [
@@ -304,6 +321,9 @@ def get_cities(trip_id):
         })
         
     except Exception as e:
+        print(f"❌ Error getting cities: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({
             "success": False,
             "error": str(e)
@@ -319,4 +339,3 @@ if __name__ == '__main__':
     print("=" * 80)
     
     app.run(debug=True, host='0.0.0.0', port=5001)
-
