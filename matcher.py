@@ -25,19 +25,29 @@ class TravelMatcher:
             else:
                 self.cities = data
 
+    print(f"✅ Loaded {len(self.regions)} regions and {len(self.cities)} cities")
+    print(f"Sample region: {self.regions[0]['name'] if self.regions else 'NONE'}")
+
     def calculate_region_match(self, users_preferences: List[Dict], geographic_scope: str, trip_type: str = "friends_vacation") -> List[Dict]:
         """
         Calculate match scores for all regions based on user preferences.
         Returns sorted list of regions with match details.
         """
+        print(f"🔍 calculate_region_match called with scope: {geographic_scope}, users: {len(users_preferences)}")
+        
         scored_regions = []
         
         for region in self.regions:
+            print(f"  Checking region: {region.get('name', 'unknown')}")
             # Skip if geographic scope doesn't match
             if geographic_scope not in ["Anywhere", region.get("continent", "")] and \
                geographic_scope not in region.get("tags", []):
                 continue
-            
+            if geographic_scope not in ["Anywhere", region.get("continent", "")] and geographic_scope not in region.get("tags", []):
+                print(f"    ❌ Geographic mismatch")
+                continue
+            else:
+                print(f"    ✅ Geographic match")
             # Calculate score for this region
             region_score = 0
             user_breakdown = []
@@ -120,6 +130,7 @@ class TravelMatcher:
         
         # Sort by score descending
         scored_regions.sort(key=lambda x: x['score'], reverse=True)
+        print(f"🔚 Returning {len(scored_regions)} regions")
         return scored_regions[:10]  # Return top 10
 
     def calculate_city_match(self, region_id: str, users_preferences: List[Dict], trip_type: str = "friends_vacation") -> List[Dict]:
