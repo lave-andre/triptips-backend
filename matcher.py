@@ -46,12 +46,16 @@ class TravelMatcher:
 
             # Skip if geographic scope doesn't match
             # New database uses "continent" field (string)
-            region_continent = region.get('continent', '')
-            if geographic_scope != "Anywhere" and geographic_scope != region_continent:
-                # Also check tags for backward compatibility
-                if geographic_scope not in region.get('tags', []):
-                    print(f"    ❌ Geographic mismatch (continent: {region_continent})")
-                    continue
+           # Normalize both sides for comparison
+        user_scope = geographic_scope.lower().replace(' ', '-') if geographic_scope else ''
+        region_continent = region.get('continent', '').lower()
+        
+        if geographic_scope != "Anywhere" and user_scope != region_continent:
+            # Also check tags (normalized)
+            normalized_tags = [tag.lower().replace(' ', '-') for tag in region.get('tags', [])]
+            if user_scope not in normalized_tags:
+                print(f"    ❌ Geographic mismatch (continent: {region_continent})")
+                continue
             
             print(f"    ✅ Geographic match")
 
