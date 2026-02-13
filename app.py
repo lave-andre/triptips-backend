@@ -181,7 +181,7 @@ def calculate_matches(trip_id):
             "region_name": r['region']['name'],
             "country": r['region']['country'],
             "match_percentage": r['match_percentage'],
-            "budget_range": r['region']['budget_range'],
+            "budget_range": r['region'].get('budget_ranges', {}).get('moderate', [50, 150]),
             "environment": r['region']['environment'],
             "style": r['region']['style'],
             "pros": r['details']['pros'],
