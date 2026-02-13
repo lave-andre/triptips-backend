@@ -25,8 +25,12 @@ class TravelMatcher:
             else:
                 self.cities = data
 
-    print(f"✅ Loaded {len(self.regions)} regions and {len(self.cities)} cities")
-    print(f"Sample region: {self.regions[0]['name'] if self.regions else 'NONE'}")
+        # ✅ Debug: print how many regions and cities were loaded
+        print(f"✅ Loaded {len(self.regions)} regions and {len(self.cities)} cities")
+        if self.regions:
+            print(f"✅ Sample region: {self.regions[0].get('name', 'NONE')}")
+        else:
+            print("❌ No regions loaded!")
 
     def calculate_region_match(self, users_preferences: List[Dict], geographic_scope: str, trip_type: str = "friends_vacation") -> List[Dict]:
         """
@@ -34,20 +38,23 @@ class TravelMatcher:
         Returns sorted list of regions with match details.
         """
         print(f"🔍 calculate_region_match called with scope: {geographic_scope}, users: {len(users_preferences)}")
-        
         scored_regions = []
         
         for region in self.regions:
-            print(f"  Checking region: {region.get('name', 'unknown')}")
+            region_name = region.get('name', 'unknown')
+            print(f"  Checking region: {region_name}")
+
             # Skip if geographic scope doesn't match
-            if geographic_scope not in ["Anywhere", region.get("continent", "")] and \
-               geographic_scope not in region.get("tags", []):
-                continue
-            if geographic_scope not in ["Anywhere", region.get("continent", "")] and geographic_scope not in region.get("tags", []):
-                print(f"    ❌ Geographic mismatch")
-                continue
-            else:
-                print(f"    ✅ Geographic match")
+            # New database uses "continent" field (string)
+            region_continent = region.get('continent', '')
+            if geographic_scope != "Anywhere" and geographic_scope != region_continent:
+                # Also check tags for backward compatibility
+                if geographic_scope not in region.get('tags', []):
+                    print(f"    ❌ Geographic mismatch (continent: {region_continent})")
+                    continue
+            
+            print(f"    ✅ Geographic match")
+
             # Calculate score for this region
             region_score = 0
             user_breakdown = []
