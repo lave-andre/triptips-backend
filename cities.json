@@ -1,0 +1,2504 @@
+{
+  "cities": [
+    {
+      "id": "city_0001",
+      "name": "Positano",
+      "region_id": "amalfi-coast"
+    },
+    {
+      "id": "city_0002",
+      "name": "Amalfi",
+      "region_id": "amalfi-coast"
+    },
+    {
+      "id": "city_0003",
+      "name": "Ravello",
+      "region_id": "amalfi-coast"
+    },
+    {
+      "id": "city_0004",
+      "name": "Sorrento",
+      "region_id": "amalfi-coast"
+    },
+    {
+      "id": "city_0005",
+      "name": "Praiano",
+      "region_id": "amalfi-coast"
+    },
+    {
+      "id": "city_0006",
+      "name": "Reykjavik",
+      "region_id": "iceland"
+    },
+    {
+      "id": "city_0007",
+      "name": "Akureyri",
+      "region_id": "iceland"
+    },
+    {
+      "id": "city_0008",
+      "name": "Vik",
+      "region_id": "iceland"
+    },
+    {
+      "id": "city_0009",
+      "name": "Hofn",
+      "region_id": "iceland"
+    },
+    {
+      "id": "city_0010",
+      "name": "Tokyo",
+      "region_id": "tokyo-region"
+    },
+    {
+      "id": "city_0011",
+      "name": "Yokohama",
+      "region_id": "tokyo-region"
+    },
+    {
+      "id": "city_0012",
+      "name": "Kawasaki",
+      "region_id": "tokyo-region"
+    },
+    {
+      "id": "city_0013",
+      "name": "Chiba",
+      "region_id": "tokyo-region"
+    },
+    {
+      "id": "city_0014",
+      "name": "Saitama",
+      "region_id": "tokyo-region"
+    },
+    {
+      "id": "city_0015",
+      "name": "Santorini",
+      "region_id": "greek-islands"
+    },
+    {
+      "id": "city_0016",
+      "name": "Mykonos",
+      "region_id": "greek-islands"
+    },
+    {
+      "id": "city_0017",
+      "name": "Rhodes",
+      "region_id": "greek-islands"
+    },
+    {
+      "id": "city_0018",
+      "name": "Crete (Heraklion)",
+      "region_id": "greek-islands"
+    },
+    {
+      "id": "city_0019",
+      "name": "Paros",
+      "region_id": "greek-islands"
+    },
+    {
+      "id": "city_0020",
+      "name": "Naxos",
+      "region_id": "greek-islands"
+    },
+    {
+      "id": "city_0021",
+      "name": "Inverness",
+      "region_id": "scottish-highlands"
+    },
+    {
+      "id": "city_0022",
+      "name": "Fort William",
+      "region_id": "scottish-highlands"
+    },
+    {
+      "id": "city_0023",
+      "name": "Portree",
+      "region_id": "scottish-highlands"
+    },
+    {
+      "id": "city_0024",
+      "name": "Oban",
+      "region_id": "scottish-highlands"
+    },
+    {
+      "id": "city_0025",
+      "name": "Avignon",
+      "region_id": "provence"
+    },
+    {
+      "id": "city_0026",
+      "name": "Aix-en-Provence",
+      "region_id": "provence"
+    },
+    {
+      "id": "city_0027",
+      "name": "Arles",
+      "region_id": "provence"
+    },
+    {
+      "id": "city_0028",
+      "name": "Nice",
+      "region_id": "provence"
+    },
+    {
+      "id": "city_0029",
+      "name": "Marseille",
+      "region_id": "provence"
+    },
+    {
+      "id": "city_0030",
+      "name": "Queenstown",
+      "region_id": "new-zealand-south-island"
+    },
+    {
+      "id": "city_0031",
+      "name": "Christchurch",
+      "region_id": "new-zealand-south-island"
+    },
+    {
+      "id": "city_0032",
+      "name": "Dunedin",
+      "region_id": "new-zealand-south-island"
+    },
+    {
+      "id": "city_0033",
+      "name": "Wanaka",
+      "region_id": "new-zealand-south-island"
+    },
+    {
+      "id": "city_0034",
+      "name": "Marrakech",
+      "region_id": "marrakech-region"
+    },
+    {
+      "id": "city_0035",
+      "name": "Essaouira",
+      "region_id": "marrakech-region"
+    },
+    {
+      "id": "city_0036",
+      "name": "Ouarzazate",
+      "region_id": "marrakech-region"
+    },
+    {
+      "id": "city_0037",
+      "name": "Agadir",
+      "region_id": "marrakech-region"
+    },
+    {
+      "id": "city_0038",
+      "name": "Dubai",
+      "region_id": "dubai-uae"
+    },
+    {
+      "id": "city_0039",
+      "name": "Abu Dhabi",
+      "region_id": "dubai-uae"
+    },
+    {
+      "id": "city_0040",
+      "name": "Sharjah",
+      "region_id": "dubai-uae"
+    },
+    {
+      "id": "city_0041",
+      "name": "Ajman",
+      "region_id": "dubai-uae"
+    },
+    {
+      "id": "city_0042",
+      "name": "Hoi An",
+      "region_id": "vietnam-central"
+    },
+    {
+      "id": "city_0043",
+      "name": "Da Nang",
+      "region_id": "vietnam-central"
+    },
+    {
+      "id": "city_0044",
+      "name": "Hue",
+      "region_id": "vietnam-central"
+    },
+    {
+      "id": "city_0045",
+      "name": "Nha Trang",
+      "region_id": "vietnam-central"
+    },
+    {
+      "id": "city_0046",
+      "name": "Cape Town",
+      "region_id": "cape-town-region"
+    },
+    {
+      "id": "city_0047",
+      "name": "Stellenbosch",
+      "region_id": "cape-town-region"
+    },
+    {
+      "id": "city_0048",
+      "name": "Franschhoek",
+      "region_id": "cape-town-region"
+    },
+    {
+      "id": "city_0049",
+      "name": "Hermanus",
+      "region_id": "cape-town-region"
+    },
+    {
+      "id": "city_0050",
+      "name": "Phuket",
+      "region_id": "thai-islands"
+    },
+    {
+      "id": "city_0051",
+      "name": "Krabi",
+      "region_id": "thai-islands"
+    },
+    {
+      "id": "city_0052",
+      "name": "Koh Samui",
+      "region_id": "thai-islands"
+    },
+    {
+      "id": "city_0053",
+      "name": "Koh Phi Phi",
+      "region_id": "thai-islands"
+    },
+    {
+      "id": "city_0054",
+      "name": "Koh Lanta",
+      "region_id": "thai-islands"
+    },
+    {
+      "id": "city_0055",
+      "name": "Barcelona",
+      "region_id": "barcelona-catalonia"
+    },
+    {
+      "id": "city_0056",
+      "name": "Girona",
+      "region_id": "barcelona-catalonia"
+    },
+    {
+      "id": "city_0057",
+      "name": "Tarragona",
+      "region_id": "barcelona-catalonia"
+    },
+    {
+      "id": "city_0058",
+      "name": "Sitges",
+      "region_id": "barcelona-catalonia"
+    },
+    {
+      "id": "city_0059",
+      "name": "Montserrat",
+      "region_id": "barcelona-catalonia"
+    },
+    {
+      "id": "city_0060",
+      "name": "Florence",
+      "region_id": "tuscany"
+    },
+    {
+      "id": "city_0061",
+      "name": "Siena",
+      "region_id": "tuscany"
+    },
+    {
+      "id": "city_0062",
+      "name": "Pisa",
+      "region_id": "tuscany"
+    },
+    {
+      "id": "city_0063",
+      "name": "Lucca",
+      "region_id": "tuscany"
+    },
+    {
+      "id": "city_0064",
+      "name": "San Gimignano",
+      "region_id": "tuscany"
+    },
+    {
+      "id": "city_0065",
+      "name": "Dubrovnik",
+      "region_id": "croatian-coast"
+    },
+    {
+      "id": "city_0066",
+      "name": "Split",
+      "region_id": "croatian-coast"
+    },
+    {
+      "id": "city_0067",
+      "name": "Zadar",
+      "region_id": "croatian-coast"
+    },
+    {
+      "id": "city_0068",
+      "name": "Hvar",
+      "region_id": "croatian-coast"
+    },
+    {
+      "id": "city_0069",
+      "name": "Rovinj",
+      "region_id": "croatian-coast"
+    },
+    {
+      "id": "city_0070",
+      "name": "Lisbon",
+      "region_id": "lisbon-region"
+    },
+    {
+      "id": "city_0071",
+      "name": "Sintra",
+      "region_id": "lisbon-region"
+    },
+    {
+      "id": "city_0072",
+      "name": "Cascais",
+      "region_id": "lisbon-region"
+    },
+    {
+      "id": "city_0073",
+      "name": "Obidos",
+      "region_id": "lisbon-region"
+    },
+    {
+      "id": "city_0074",
+      "name": "Zermatt",
+      "region_id": "swiss-alps"
+    },
+    {
+      "id": "city_0075",
+      "name": "Interlaken",
+      "region_id": "swiss-alps"
+    },
+    {
+      "id": "city_0076",
+      "name": "Lucerne",
+      "region_id": "swiss-alps"
+    },
+    {
+      "id": "city_0077",
+      "name": "Grindelwald",
+      "region_id": "swiss-alps"
+    },
+    {
+      "id": "city_0078",
+      "name": "St. Moritz",
+      "region_id": "swiss-alps"
+    },
+    {
+      "id": "city_0079",
+      "name": "Kyoto",
+      "region_id": "kyoto-region"
+    },
+    {
+      "id": "city_0080",
+      "name": "Nara",
+      "region_id": "kyoto-region"
+    },
+    {
+      "id": "city_0081",
+      "name": "Osaka",
+      "region_id": "kyoto-region"
+    },
+    {
+      "id": "city_0082",
+      "name": "Kobe",
+      "region_id": "kyoto-region"
+    },
+    {
+      "id": "city_0083",
+      "name": "Singapore",
+      "region_id": "singapore"
+    },
+    {
+      "id": "city_0084",
+      "name": "Cancun",
+      "region_id": "cancun-riviera-maya"
+    },
+    {
+      "id": "city_0085",
+      "name": "Playa del Carmen",
+      "region_id": "cancun-riviera-maya"
+    },
+    {
+      "id": "city_0086",
+      "name": "Tulum",
+      "region_id": "cancun-riviera-maya"
+    },
+    {
+      "id": "city_0087",
+      "name": "Cozumel",
+      "region_id": "cancun-riviera-maya"
+    },
+    {
+      "id": "city_0088",
+      "name": "Honolulu",
+      "region_id": "hawaii-islands"
+    },
+    {
+      "id": "city_0089",
+      "name": "Maui",
+      "region_id": "hawaii-islands"
+    },
+    {
+      "id": "city_0090",
+      "name": "Kauai",
+      "region_id": "hawaii-islands"
+    },
+    {
+      "id": "city_0091",
+      "name": "Big Island (Kona)",
+      "region_id": "hawaii-islands"
+    },
+    {
+      "id": "city_0092",
+      "name": "Cusco",
+      "region_id": "peru-machu-picchu"
+    },
+    {
+      "id": "city_0093",
+      "name": "Aguas Calientes",
+      "region_id": "peru-machu-picchu"
+    },
+    {
+      "id": "city_0094",
+      "name": "Ollantaytambo",
+      "region_id": "peru-machu-picchu"
+    },
+    {
+      "id": "city_0095",
+      "name": "Pisac",
+      "region_id": "peru-machu-picchu"
+    },
+    {
+      "id": "city_0096",
+      "name": "Ubud",
+      "region_id": "bali-ubud"
+    },
+    {
+      "id": "city_0097",
+      "name": "Denpasar",
+      "region_id": "bali-ubud"
+    },
+    {
+      "id": "city_0098",
+      "name": "Sanur",
+      "region_id": "bali-ubud"
+    },
+    {
+      "id": "city_0099",
+      "name": "Gianyar",
+      "region_id": "bali-ubud"
+    },
+    {
+      "id": "city_0100",
+      "name": "Male",
+      "region_id": "maldives"
+    },
+    {
+      "id": "city_0101",
+      "name": "Hulhumale",
+      "region_id": "maldives"
+    },
+    {
+      "id": "city_0102",
+      "name": "Maafushi",
+      "region_id": "maldives"
+    },
+    {
+      "id": "city_0103",
+      "name": "Vancouver",
+      "region_id": "vancouver-bc"
+    },
+    {
+      "id": "city_0104",
+      "name": "Whistler",
+      "region_id": "vancouver-bc"
+    },
+    {
+      "id": "city_0105",
+      "name": "Victoria",
+      "region_id": "vancouver-bc"
+    },
+    {
+      "id": "city_0106",
+      "name": "Richmond",
+      "region_id": "vancouver-bc"
+    },
+    {
+      "id": "city_0107",
+      "name": "Colombo",
+      "region_id": "sri-lanka"
+    },
+    {
+      "id": "city_0108",
+      "name": "Kandy",
+      "region_id": "sri-lanka"
+    },
+    {
+      "id": "city_0109",
+      "name": "Galle",
+      "region_id": "sri-lanka"
+    },
+    {
+      "id": "city_0110",
+      "name": "Ella",
+      "region_id": "sri-lanka"
+    },
+    {
+      "id": "city_0111",
+      "name": "Sigiriya",
+      "region_id": "sri-lanka"
+    },
+    {
+      "id": "city_0112",
+      "name": "Bergen",
+      "region_id": "norway-fjords"
+    },
+    {
+      "id": "city_0113",
+      "name": "Stavanger",
+      "region_id": "norway-fjords"
+    },
+    {
+      "id": "city_0114",
+      "name": "Alesund",
+      "region_id": "norway-fjords"
+    },
+    {
+      "id": "city_0115",
+      "name": "Geiranger",
+      "region_id": "norway-fjords"
+    },
+    {
+      "id": "city_0116",
+      "name": "Paris",
+      "region_id": "paris-region"
+    },
+    {
+      "id": "city_0117",
+      "name": "Versailles",
+      "region_id": "paris-region"
+    },
+    {
+      "id": "city_0118",
+      "name": "Fontainebleau",
+      "region_id": "paris-region"
+    },
+    {
+      "id": "city_0119",
+      "name": "Giverny",
+      "region_id": "paris-region"
+    },
+    {
+      "id": "city_0120",
+      "name": "Rome",
+      "region_id": "rome-region"
+    },
+    {
+      "id": "city_0121",
+      "name": "Vatican City",
+      "region_id": "rome-region"
+    },
+    {
+      "id": "city_0122",
+      "name": "Tivoli",
+      "region_id": "rome-region"
+    },
+    {
+      "id": "city_0123",
+      "name": "Ostia",
+      "region_id": "rome-region"
+    },
+    {
+      "id": "city_0124",
+      "name": "Amsterdam",
+      "region_id": "amsterdam-holland"
+    },
+    {
+      "id": "city_0125",
+      "name": "Utrecht",
+      "region_id": "amsterdam-holland"
+    },
+    {
+      "id": "city_0126",
+      "name": "Haarlem",
+      "region_id": "amsterdam-holland"
+    },
+    {
+      "id": "city_0127",
+      "name": "Leiden",
+      "region_id": "amsterdam-holland"
+    },
+    {
+      "id": "city_0128",
+      "name": "Delft",
+      "region_id": "amsterdam-holland"
+    },
+    {
+      "id": "city_0129",
+      "name": "Vienna",
+      "region_id": "vienna-austria"
+    },
+    {
+      "id": "city_0130",
+      "name": "Salzburg",
+      "region_id": "vienna-austria"
+    },
+    {
+      "id": "city_0131",
+      "name": "Innsbruck",
+      "region_id": "vienna-austria"
+    },
+    {
+      "id": "city_0132",
+      "name": "Graz",
+      "region_id": "vienna-austria"
+    },
+    {
+      "id": "city_0133",
+      "name": "Prague",
+      "region_id": "prague-czechia"
+    },
+    {
+      "id": "city_0134",
+      "name": "Cesky Krumlov",
+      "region_id": "prague-czechia"
+    },
+    {
+      "id": "city_0135",
+      "name": "Brno",
+      "region_id": "prague-czechia"
+    },
+    {
+      "id": "city_0136",
+      "name": "Karlovy Vary",
+      "region_id": "prague-czechia"
+    },
+    {
+      "id": "city_0137",
+      "name": "Budapest",
+      "region_id": "budapest-hungary"
+    },
+    {
+      "id": "city_0138",
+      "name": "Eger",
+      "region_id": "budapest-hungary"
+    },
+    {
+      "id": "city_0139",
+      "name": "Pecs",
+      "region_id": "budapest-hungary"
+    },
+    {
+      "id": "city_0140",
+      "name": "Lake Balaton",
+      "region_id": "budapest-hungary"
+    },
+    {
+      "id": "city_0141",
+      "name": "Cairns",
+      "region_id": "australian-great-barrier"
+    },
+    {
+      "id": "city_0142",
+      "name": "Port Douglas",
+      "region_id": "australian-great-barrier"
+    },
+    {
+      "id": "city_0143",
+      "name": "Airlie Beach",
+      "region_id": "australian-great-barrier"
+    },
+    {
+      "id": "city_0144",
+      "name": "Mission Beach",
+      "region_id": "australian-great-barrier"
+    },
+    {
+      "id": "city_0145",
+      "name": "Rio de Janeiro",
+      "region_id": "rio-brazil"
+    },
+    {
+      "id": "city_0146",
+      "name": "Niteroi",
+      "region_id": "rio-brazil"
+    },
+    {
+      "id": "city_0147",
+      "name": "Petropolis",
+      "region_id": "rio-brazil"
+    },
+    {
+      "id": "city_0148",
+      "name": "Buzios",
+      "region_id": "rio-brazil"
+    },
+    {
+      "id": "city_0149",
+      "name": "Buenos Aires",
+      "region_id": "buenos-aires-argentina"
+    },
+    {
+      "id": "city_0150",
+      "name": "La Plata",
+      "region_id": "buenos-aires-argentina"
+    },
+    {
+      "id": "city_0151",
+      "name": "Tigre",
+      "region_id": "buenos-aires-argentina"
+    },
+    {
+      "id": "city_0152",
+      "name": "San Isidro",
+      "region_id": "buenos-aires-argentina"
+    },
+    {
+      "id": "city_0153",
+      "name": "Cartagena",
+      "region_id": "colombia-cartagena"
+    },
+    {
+      "id": "city_0154",
+      "name": "Santa Marta",
+      "region_id": "colombia-cartagena"
+    },
+    {
+      "id": "city_0155",
+      "name": "Barranquilla",
+      "region_id": "colombia-cartagena"
+    },
+    {
+      "id": "city_0156",
+      "name": "Taganga",
+      "region_id": "colombia-cartagena"
+    },
+    {
+      "id": "city_0157",
+      "name": "San Francisco",
+      "region_id": "san-francisco-bay"
+    },
+    {
+      "id": "city_0158",
+      "name": "Oakland",
+      "region_id": "san-francisco-bay"
+    },
+    {
+      "id": "city_0159",
+      "name": "Berkeley",
+      "region_id": "san-francisco-bay"
+    },
+    {
+      "id": "city_0160",
+      "name": "San Jose",
+      "region_id": "san-francisco-bay"
+    },
+    {
+      "id": "city_0161",
+      "name": "Palo Alto",
+      "region_id": "san-francisco-bay"
+    },
+    {
+      "id": "city_0162",
+      "name": "New York City",
+      "region_id": "new-york-city"
+    },
+    {
+      "id": "city_0163",
+      "name": "Brooklyn",
+      "region_id": "new-york-city"
+    },
+    {
+      "id": "city_0164",
+      "name": "Queens",
+      "region_id": "new-york-city"
+    },
+    {
+      "id": "city_0165",
+      "name": "Manhattan",
+      "region_id": "new-york-city"
+    },
+    {
+      "id": "city_0166",
+      "name": "Bronx",
+      "region_id": "new-york-city"
+    },
+    {
+      "id": "city_0167",
+      "name": "Miami",
+      "region_id": "florida-keys"
+    },
+    {
+      "id": "city_0168",
+      "name": "Key West",
+      "region_id": "florida-keys"
+    },
+    {
+      "id": "city_0169",
+      "name": "Fort Lauderdale",
+      "region_id": "florida-keys"
+    },
+    {
+      "id": "city_0170",
+      "name": "Miami Beach",
+      "region_id": "florida-keys"
+    },
+    {
+      "id": "city_0171",
+      "name": "Banff",
+      "region_id": "canadian-rockies"
+    },
+    {
+      "id": "city_0172",
+      "name": "Lake Louise",
+      "region_id": "canadian-rockies"
+    },
+    {
+      "id": "city_0173",
+      "name": "Jasper",
+      "region_id": "canadian-rockies"
+    },
+    {
+      "id": "city_0174",
+      "name": "Canmore",
+      "region_id": "canadian-rockies"
+    },
+    {
+      "id": "city_0175",
+      "name": "Seoul",
+      "region_id": "seoul-korea"
+    },
+    {
+      "id": "city_0176",
+      "name": "Busan",
+      "region_id": "seoul-korea"
+    },
+    {
+      "id": "city_0177",
+      "name": "Incheon",
+      "region_id": "seoul-korea"
+    },
+    {
+      "id": "city_0178",
+      "name": "Jeju",
+      "region_id": "seoul-korea"
+    },
+    {
+      "id": "city_0179",
+      "name": "Gyeongju",
+      "region_id": "seoul-korea"
+    },
+    {
+      "id": "city_0180",
+      "name": "Lovina",
+      "region_id": "bali-north-coast"
+    },
+    {
+      "id": "city_0181",
+      "name": "Pemuteran",
+      "region_id": "bali-north-coast"
+    },
+    {
+      "id": "city_0182",
+      "name": "Singaraja",
+      "region_id": "bali-north-coast"
+    },
+    {
+      "id": "city_0183",
+      "name": "Amed",
+      "region_id": "bali-north-coast"
+    },
+    {
+      "id": "city_0184",
+      "name": "El Nido",
+      "region_id": "philippines-palawan"
+    },
+    {
+      "id": "city_0185",
+      "name": "Coron",
+      "region_id": "philippines-palawan"
+    },
+    {
+      "id": "city_0186",
+      "name": "Puerto Princesa",
+      "region_id": "philippines-palawan"
+    },
+    {
+      "id": "city_0187",
+      "name": "Port Barton",
+      "region_id": "philippines-palawan"
+    },
+    {
+      "id": "city_0188",
+      "name": "Kota Kinabalu",
+      "region_id": "malaysia-borneo"
+    },
+    {
+      "id": "city_0189",
+      "name": "Sandakan",
+      "region_id": "malaysia-borneo"
+    },
+    {
+      "id": "city_0190",
+      "name": "Kuching",
+      "region_id": "malaysia-borneo"
+    },
+    {
+      "id": "city_0191",
+      "name": "Miri",
+      "region_id": "malaysia-borneo"
+    },
+    {
+      "id": "city_0192",
+      "name": "Siem Reap",
+      "region_id": "cambodia-angkor"
+    },
+    {
+      "id": "city_0193",
+      "name": "Battambang",
+      "region_id": "cambodia-angkor"
+    },
+    {
+      "id": "city_0194",
+      "name": "Kampot",
+      "region_id": "cambodia-angkor"
+    },
+    {
+      "id": "city_0195",
+      "name": "Jaipur",
+      "region_id": "india-rajasthan"
+    },
+    {
+      "id": "city_0196",
+      "name": "Udaipur",
+      "region_id": "india-rajasthan"
+    },
+    {
+      "id": "city_0197",
+      "name": "Jodhpur",
+      "region_id": "india-rajasthan"
+    },
+    {
+      "id": "city_0198",
+      "name": "Jaisalmer",
+      "region_id": "india-rajasthan"
+    },
+    {
+      "id": "city_0199",
+      "name": "Pushkar",
+      "region_id": "india-rajasthan"
+    },
+    {
+      "id": "city_0200",
+      "name": "Kochi",
+      "region_id": "india-kerala"
+    },
+    {
+      "id": "city_0201",
+      "name": "Munnar",
+      "region_id": "india-kerala"
+    },
+    {
+      "id": "city_0202",
+      "name": "Alleppey",
+      "region_id": "india-kerala"
+    },
+    {
+      "id": "city_0203",
+      "name": "Kovalam",
+      "region_id": "india-kerala"
+    },
+    {
+      "id": "city_0204",
+      "name": "Thekkady",
+      "region_id": "india-kerala"
+    },
+    {
+      "id": "city_0205",
+      "name": "Kathmandu",
+      "region_id": "nepal-himalayas"
+    },
+    {
+      "id": "city_0206",
+      "name": "Pokhara",
+      "region_id": "nepal-himalayas"
+    },
+    {
+      "id": "city_0207",
+      "name": "Bhaktapur",
+      "region_id": "nepal-himalayas"
+    },
+    {
+      "id": "city_0208",
+      "name": "Patan",
+      "region_id": "nepal-himalayas"
+    },
+    {
+      "id": "city_0209",
+      "name": "Arusha",
+      "region_id": "tanzania-serengeti"
+    },
+    {
+      "id": "city_0210",
+      "name": "Moshi",
+      "region_id": "tanzania-serengeti"
+    },
+    {
+      "id": "city_0211",
+      "name": "Karatu",
+      "region_id": "tanzania-serengeti"
+    },
+    {
+      "id": "city_0212",
+      "name": "Ngorongoro",
+      "region_id": "tanzania-serengeti"
+    },
+    {
+      "id": "city_0213",
+      "name": "Nairobi",
+      "region_id": "kenya-safari"
+    },
+    {
+      "id": "city_0214",
+      "name": "Mombasa",
+      "region_id": "kenya-safari"
+    },
+    {
+      "id": "city_0215",
+      "name": "Nakuru",
+      "region_id": "kenya-safari"
+    },
+    {
+      "id": "city_0216",
+      "name": "Amboseli",
+      "region_id": "kenya-safari"
+    },
+    {
+      "id": "city_0217",
+      "name": "Cairo",
+      "region_id": "egypt-nile"
+    },
+    {
+      "id": "city_0218",
+      "name": "Luxor",
+      "region_id": "egypt-nile"
+    },
+    {
+      "id": "city_0219",
+      "name": "Aswan",
+      "region_id": "egypt-nile"
+    },
+    {
+      "id": "city_0220",
+      "name": "Giza",
+      "region_id": "egypt-nile"
+    },
+    {
+      "id": "city_0221",
+      "name": "Alexandria",
+      "region_id": "egypt-nile"
+    },
+    {
+      "id": "city_0222",
+      "name": "Stone Town",
+      "region_id": "zanzibar"
+    },
+    {
+      "id": "city_0223",
+      "name": "Nungwi",
+      "region_id": "zanzibar"
+    },
+    {
+      "id": "city_0224",
+      "name": "Paje",
+      "region_id": "zanzibar"
+    },
+    {
+      "id": "city_0225",
+      "name": "Kendwa",
+      "region_id": "zanzibar"
+    },
+    {
+      "id": "city_0226",
+      "name": "Nadi",
+      "region_id": "fiji"
+    },
+    {
+      "id": "city_0227",
+      "name": "Suva",
+      "region_id": "fiji"
+    },
+    {
+      "id": "city_0228",
+      "name": "Coral Coast",
+      "region_id": "fiji"
+    },
+    {
+      "id": "city_0229",
+      "name": "Mamanuca Islands",
+      "region_id": "fiji"
+    },
+    {
+      "id": "city_0230",
+      "name": "Sydney",
+      "region_id": "australia-sydney"
+    },
+    {
+      "id": "city_0231",
+      "name": "Newcastle",
+      "region_id": "australia-sydney"
+    },
+    {
+      "id": "city_0232",
+      "name": "Wollongong",
+      "region_id": "australia-sydney"
+    },
+    {
+      "id": "city_0233",
+      "name": "Blue Mountains",
+      "region_id": "australia-sydney"
+    },
+    {
+      "id": "city_0234",
+      "name": "Auckland",
+      "region_id": "new-zealand-north-island"
+    },
+    {
+      "id": "city_0235",
+      "name": "Wellington",
+      "region_id": "new-zealand-north-island"
+    },
+    {
+      "id": "city_0236",
+      "name": "Rotorua",
+      "region_id": "new-zealand-north-island"
+    },
+    {
+      "id": "city_0237",
+      "name": "Taupo",
+      "region_id": "new-zealand-north-island"
+    },
+    {
+      "id": "city_0238",
+      "name": "Hamilton",
+      "region_id": "new-zealand-north-island"
+    },
+    {
+      "id": "city_0239",
+      "name": "Beijing",
+      "region_id": "china-beijing"
+    },
+    {
+      "id": "city_0240",
+      "name": "Tianjin",
+      "region_id": "china-beijing"
+    },
+    {
+      "id": "city_0241",
+      "name": "Chengde",
+      "region_id": "china-beijing"
+    },
+    {
+      "id": "city_0242",
+      "name": "Datong",
+      "region_id": "china-beijing"
+    },
+    {
+      "id": "city_0243",
+      "name": "Shanghai",
+      "region_id": "china-shanghai"
+    },
+    {
+      "id": "city_0244",
+      "name": "Suzhou",
+      "region_id": "china-shanghai"
+    },
+    {
+      "id": "city_0245",
+      "name": "Hangzhou",
+      "region_id": "china-shanghai"
+    },
+    {
+      "id": "city_0246",
+      "name": "Ningbo",
+      "region_id": "china-shanghai"
+    },
+    {
+      "id": "city_0247",
+      "name": "Wuxi",
+      "region_id": "china-shanghai"
+    },
+    {
+      "id": "city_0248",
+      "name": "Hong Kong Island",
+      "region_id": "hong-kong"
+    },
+    {
+      "id": "city_0249",
+      "name": "Kowloon",
+      "region_id": "hong-kong"
+    },
+    {
+      "id": "city_0250",
+      "name": "New Territories",
+      "region_id": "hong-kong"
+    },
+    {
+      "id": "city_0251",
+      "name": "Lantau",
+      "region_id": "hong-kong"
+    },
+    {
+      "id": "city_0252",
+      "name": "Seville",
+      "region_id": "spain-andalusia"
+    },
+    {
+      "id": "city_0253",
+      "name": "Granada",
+      "region_id": "spain-andalusia"
+    },
+    {
+      "id": "city_0254",
+      "name": "Cordoba",
+      "region_id": "spain-andalusia"
+    },
+    {
+      "id": "city_0255",
+      "name": "Malaga",
+      "region_id": "spain-andalusia"
+    },
+    {
+      "id": "city_0256",
+      "name": "Ronda",
+      "region_id": "spain-andalusia"
+    },
+    {
+      "id": "city_0257",
+      "name": "San Sebastian",
+      "region_id": "spain-basque"
+    },
+    {
+      "id": "city_0258",
+      "name": "Bilbao",
+      "region_id": "spain-basque"
+    },
+    {
+      "id": "city_0259",
+      "name": "Vitoria",
+      "region_id": "spain-basque"
+    },
+    {
+      "id": "city_0260",
+      "name": "Pamplona",
+      "region_id": "spain-basque"
+    },
+    {
+      "id": "city_0261",
+      "name": "Venice",
+      "region_id": "italy-venice"
+    },
+    {
+      "id": "city_0262",
+      "name": "Verona",
+      "region_id": "italy-venice"
+    },
+    {
+      "id": "city_0263",
+      "name": "Padua",
+      "region_id": "italy-venice"
+    },
+    {
+      "id": "city_0264",
+      "name": "Treviso",
+      "region_id": "italy-venice"
+    },
+    {
+      "id": "city_0265",
+      "name": "Palermo",
+      "region_id": "italy-sicily"
+    },
+    {
+      "id": "city_0266",
+      "name": "Catania",
+      "region_id": "italy-sicily"
+    },
+    {
+      "id": "city_0267",
+      "name": "Syracuse",
+      "region_id": "italy-sicily"
+    },
+    {
+      "id": "city_0268",
+      "name": "Taormina",
+      "region_id": "italy-sicily"
+    },
+    {
+      "id": "city_0269",
+      "name": "Agrigento",
+      "region_id": "italy-sicily"
+    },
+    {
+      "id": "city_0270",
+      "name": "Oaxaca City",
+      "region_id": "mexico-oaxaca"
+    },
+    {
+      "id": "city_0271",
+      "name": "Puerto Escondido",
+      "region_id": "mexico-oaxaca"
+    },
+    {
+      "id": "city_0272",
+      "name": "Huatulco",
+      "region_id": "mexico-oaxaca"
+    },
+    {
+      "id": "city_0273",
+      "name": "Monte Alban",
+      "region_id": "mexico-oaxaca"
+    },
+    {
+      "id": "city_0274",
+      "name": "San Pedro de Atacama",
+      "region_id": "chile-atacama"
+    },
+    {
+      "id": "city_0275",
+      "name": "Calama",
+      "region_id": "chile-atacama"
+    },
+    {
+      "id": "city_0276",
+      "name": "Antofagasta",
+      "region_id": "chile-atacama"
+    },
+    {
+      "id": "city_0277",
+      "name": "Santa Cruz",
+      "region_id": "ecuador-galapagos"
+    },
+    {
+      "id": "city_0278",
+      "name": "San Cristobal",
+      "region_id": "ecuador-galapagos"
+    },
+    {
+      "id": "city_0279",
+      "name": "Isabela",
+      "region_id": "ecuador-galapagos"
+    },
+    {
+      "id": "city_0280",
+      "name": "Baltra",
+      "region_id": "ecuador-galapagos"
+    },
+    {
+      "id": "city_0281",
+      "name": "Denver",
+      "region_id": "colorado-rockies"
+    },
+    {
+      "id": "city_0282",
+      "name": "Boulder",
+      "region_id": "colorado-rockies"
+    },
+    {
+      "id": "city_0283",
+      "name": "Aspen",
+      "region_id": "colorado-rockies"
+    },
+    {
+      "id": "city_0284",
+      "name": "Vail",
+      "region_id": "colorado-rockies"
+    },
+    {
+      "id": "city_0285",
+      "name": "Breckenridge",
+      "region_id": "colorado-rockies"
+    },
+    {
+      "id": "city_0286",
+      "name": "Phoenix",
+      "region_id": "arizona-southwest"
+    },
+    {
+      "id": "city_0287",
+      "name": "Sedona",
+      "region_id": "arizona-southwest"
+    },
+    {
+      "id": "city_0288",
+      "name": "Flagstaff",
+      "region_id": "arizona-southwest"
+    },
+    {
+      "id": "city_0289",
+      "name": "Tucson",
+      "region_id": "arizona-southwest"
+    },
+    {
+      "id": "city_0290",
+      "name": "Prescott",
+      "region_id": "arizona-southwest"
+    },
+    {
+      "id": "city_0291",
+      "name": "Portland",
+      "region_id": "pacific-northwest-oregon"
+    },
+    {
+      "id": "city_0292",
+      "name": "Eugene",
+      "region_id": "pacific-northwest-oregon"
+    },
+    {
+      "id": "city_0293",
+      "name": "Bend",
+      "region_id": "pacific-northwest-oregon"
+    },
+    {
+      "id": "city_0294",
+      "name": "Cannon Beach",
+      "region_id": "pacific-northwest-oregon"
+    },
+    {
+      "id": "city_0295",
+      "name": "Quebec City",
+      "region_id": "quebec-canada"
+    },
+    {
+      "id": "city_0296",
+      "name": "Montreal",
+      "region_id": "quebec-canada"
+    },
+    {
+      "id": "city_0297",
+      "name": "Tadoussac",
+      "region_id": "quebec-canada"
+    },
+    {
+      "id": "city_0298",
+      "name": "Charlevoix",
+      "region_id": "quebec-canada"
+    },
+    {
+      "id": "city_0299",
+      "name": "London",
+      "region_id": "london-uk"
+    },
+    {
+      "id": "city_0300",
+      "name": "Oxford",
+      "region_id": "london-uk"
+    },
+    {
+      "id": "city_0301",
+      "name": "Cambridge",
+      "region_id": "london-uk"
+    },
+    {
+      "id": "city_0302",
+      "name": "Windsor",
+      "region_id": "london-uk"
+    },
+    {
+      "id": "city_0303",
+      "name": "Brighton",
+      "region_id": "london-uk"
+    },
+    {
+      "id": "city_0304",
+      "name": "Edinburgh",
+      "region_id": "edinburgh-scotland"
+    },
+    {
+      "id": "city_0305",
+      "name": "Glasgow",
+      "region_id": "edinburgh-scotland"
+    },
+    {
+      "id": "city_0306",
+      "name": "Stirling",
+      "region_id": "edinburgh-scotland"
+    },
+    {
+      "id": "city_0307",
+      "name": "St Andrews",
+      "region_id": "edinburgh-scotland"
+    },
+    {
+      "id": "city_0308",
+      "name": "Berlin",
+      "region_id": "berlin-germany"
+    },
+    {
+      "id": "city_0309",
+      "name": "Potsdam",
+      "region_id": "berlin-germany"
+    },
+    {
+      "id": "city_0310",
+      "name": "Dresden",
+      "region_id": "berlin-germany"
+    },
+    {
+      "id": "city_0311",
+      "name": "Leipzig",
+      "region_id": "berlin-germany"
+    },
+    {
+      "id": "city_0312",
+      "name": "Munich",
+      "region_id": "munich-bavaria"
+    },
+    {
+      "id": "city_0313",
+      "name": "Fussen",
+      "region_id": "munich-bavaria"
+    },
+    {
+      "id": "city_0314",
+      "name": "Garmisch",
+      "region_id": "munich-bavaria"
+    },
+    {
+      "id": "city_0315",
+      "name": "Berchtesgaden",
+      "region_id": "munich-bavaria"
+    },
+    {
+      "id": "city_0316",
+      "name": "Nuremberg",
+      "region_id": "munich-bavaria"
+    },
+    {
+      "id": "city_0317",
+      "name": "Stockholm",
+      "region_id": "stockholm-sweden"
+    },
+    {
+      "id": "city_0318",
+      "name": "Gothenburg",
+      "region_id": "stockholm-sweden"
+    },
+    {
+      "id": "city_0319",
+      "name": "Uppsala",
+      "region_id": "stockholm-sweden"
+    },
+    {
+      "id": "city_0320",
+      "name": "Malmo",
+      "region_id": "stockholm-sweden"
+    },
+    {
+      "id": "city_0321",
+      "name": "Copenhagen",
+      "region_id": "copenhagen-denmark"
+    },
+    {
+      "id": "city_0322",
+      "name": "Aarhus",
+      "region_id": "copenhagen-denmark"
+    },
+    {
+      "id": "city_0323",
+      "name": "Odense",
+      "region_id": "copenhagen-denmark"
+    },
+    {
+      "id": "city_0324",
+      "name": "Roskilde",
+      "region_id": "copenhagen-denmark"
+    },
+    {
+      "id": "city_0325",
+      "name": "Maun",
+      "region_id": "botswana-okavango"
+    },
+    {
+      "id": "city_0326",
+      "name": "Kasane",
+      "region_id": "botswana-okavango"
+    },
+    {
+      "id": "city_0327",
+      "name": "Gaborone",
+      "region_id": "botswana-okavango"
+    },
+    {
+      "id": "city_0328",
+      "name": "Windhoek",
+      "region_id": "namibia-desert"
+    },
+    {
+      "id": "city_0329",
+      "name": "Swakopmund",
+      "region_id": "namibia-desert"
+    },
+    {
+      "id": "city_0330",
+      "name": "Walvis Bay",
+      "region_id": "namibia-desert"
+    },
+    {
+      "id": "city_0331",
+      "name": "Sossusvlei",
+      "region_id": "namibia-desert"
+    },
+    {
+      "id": "city_0332",
+      "name": "Victoria",
+      "region_id": "seychelles"
+    },
+    {
+      "id": "city_0333",
+      "name": "Praslin",
+      "region_id": "seychelles"
+    },
+    {
+      "id": "city_0334",
+      "name": "La Digue",
+      "region_id": "seychelles"
+    },
+    {
+      "id": "city_0335",
+      "name": "Mahe",
+      "region_id": "seychelles"
+    },
+    {
+      "id": "city_0336",
+      "name": "Port Louis",
+      "region_id": "mauritius"
+    },
+    {
+      "id": "city_0337",
+      "name": "Grand Baie",
+      "region_id": "mauritius"
+    },
+    {
+      "id": "city_0338",
+      "name": "Flic en Flac",
+      "region_id": "mauritius"
+    },
+    {
+      "id": "city_0339",
+      "name": "Belle Mare",
+      "region_id": "mauritius"
+    },
+    {
+      "id": "city_0340",
+      "name": "Montego Bay",
+      "region_id": "jamaica"
+    },
+    {
+      "id": "city_0341",
+      "name": "Negril",
+      "region_id": "jamaica"
+    },
+    {
+      "id": "city_0342",
+      "name": "Ocho Rios",
+      "region_id": "jamaica"
+    },
+    {
+      "id": "city_0343",
+      "name": "Kingston",
+      "region_id": "jamaica"
+    },
+    {
+      "id": "city_0344",
+      "name": "Austin",
+      "region_id": "austin-texas"
+    },
+    {
+      "id": "city_0345",
+      "name": "San Antonio",
+      "region_id": "austin-texas"
+    },
+    {
+      "id": "city_0346",
+      "name": "Hill Country",
+      "region_id": "austin-texas"
+    },
+    {
+      "id": "city_0347",
+      "name": "Nashville",
+      "region_id": "nashville-tennessee"
+    },
+    {
+      "id": "city_0348",
+      "name": "Memphis",
+      "region_id": "nashville-tennessee"
+    },
+    {
+      "id": "city_0349",
+      "name": "Gatlinburg",
+      "region_id": "nashville-tennessee"
+    },
+    {
+      "id": "city_0350",
+      "name": "Chattanooga",
+      "region_id": "nashville-tennessee"
+    },
+    {
+      "id": "city_0351",
+      "name": "Charleston",
+      "region_id": "charleston-sc"
+    },
+    {
+      "id": "city_0352",
+      "name": "Savannah",
+      "region_id": "charleston-sc"
+    },
+    {
+      "id": "city_0353",
+      "name": "Hilton Head",
+      "region_id": "charleston-sc"
+    },
+    {
+      "id": "city_0354",
+      "name": "Myrtle Beach",
+      "region_id": "charleston-sc"
+    },
+    {
+      "id": "city_0355",
+      "name": "Los Angeles",
+      "region_id": "los-angeles"
+    },
+    {
+      "id": "city_0356",
+      "name": "Santa Monica",
+      "region_id": "los-angeles"
+    },
+    {
+      "id": "city_0357",
+      "name": "Malibu",
+      "region_id": "los-angeles"
+    },
+    {
+      "id": "city_0358",
+      "name": "Long Beach",
+      "region_id": "los-angeles"
+    },
+    {
+      "id": "city_0359",
+      "name": "Pasadena",
+      "region_id": "los-angeles"
+    },
+    {
+      "id": "city_0360",
+      "name": "Anchorage",
+      "region_id": "alaska"
+    },
+    {
+      "id": "city_0361",
+      "name": "Juneau",
+      "region_id": "alaska"
+    },
+    {
+      "id": "city_0362",
+      "name": "Fairbanks",
+      "region_id": "alaska"
+    },
+    {
+      "id": "city_0363",
+      "name": "Seward",
+      "region_id": "alaska"
+    },
+    {
+      "id": "city_0364",
+      "name": "Denali",
+      "region_id": "alaska"
+    },
+    {
+      "id": "city_0365",
+      "name": "Seattle",
+      "region_id": "seattle-pnw"
+    },
+    {
+      "id": "city_0366",
+      "name": "Tacoma",
+      "region_id": "seattle-pnw"
+    },
+    {
+      "id": "city_0367",
+      "name": "Bellingham",
+      "region_id": "seattle-pnw"
+    },
+    {
+      "id": "city_0368",
+      "name": "Olympic Peninsula",
+      "region_id": "seattle-pnw"
+    },
+    {
+      "id": "city_0369",
+      "name": "Montreal",
+      "region_id": "montreal-canada"
+    },
+    {
+      "id": "city_0370",
+      "name": "Quebec City",
+      "region_id": "montreal-canada"
+    },
+    {
+      "id": "city_0371",
+      "name": "Laval",
+      "region_id": "montreal-canada"
+    },
+    {
+      "id": "city_0372",
+      "name": "Gatineau",
+      "region_id": "montreal-canada"
+    },
+    {
+      "id": "city_0373",
+      "name": "Melbourne",
+      "region_id": "melbourne-australia"
+    },
+    {
+      "id": "city_0374",
+      "name": "Geelong",
+      "region_id": "melbourne-australia"
+    },
+    {
+      "id": "city_0375",
+      "name": "Great Ocean Road",
+      "region_id": "melbourne-australia"
+    },
+    {
+      "id": "city_0376",
+      "name": "Mornington",
+      "region_id": "melbourne-australia"
+    },
+    {
+      "id": "city_0377",
+      "name": "Bora Bora",
+      "region_id": "french-polynesia"
+    },
+    {
+      "id": "city_0378",
+      "name": "Tahiti",
+      "region_id": "french-polynesia"
+    },
+    {
+      "id": "city_0379",
+      "name": "Moorea",
+      "region_id": "french-polynesia"
+    },
+    {
+      "id": "city_0380",
+      "name": "Rangiroa",
+      "region_id": "french-polynesia"
+    },
+    {
+      "id": "city_0381",
+      "name": "Petra",
+      "region_id": "jordan-petra"
+    },
+    {
+      "id": "city_0382",
+      "name": "Wadi Rum",
+      "region_id": "jordan-petra"
+    },
+    {
+      "id": "city_0383",
+      "name": "Amman",
+      "region_id": "jordan-petra"
+    },
+    {
+      "id": "city_0384",
+      "name": "Aqaba",
+      "region_id": "jordan-petra"
+    },
+    {
+      "id": "city_0385",
+      "name": "Dead Sea",
+      "region_id": "jordan-petra"
+    },
+    {
+      "id": "city_0386",
+      "name": "Muscat",
+      "region_id": "oman"
+    },
+    {
+      "id": "city_0387",
+      "name": "Salalah",
+      "region_id": "oman"
+    },
+    {
+      "id": "city_0388",
+      "name": "Nizwa",
+      "region_id": "oman"
+    },
+    {
+      "id": "city_0389",
+      "name": "Sur",
+      "region_id": "oman"
+    },
+    {
+      "id": "city_0390",
+      "name": "Valletta",
+      "region_id": "malta"
+    },
+    {
+      "id": "city_0391",
+      "name": "Mdina",
+      "region_id": "malta"
+    },
+    {
+      "id": "city_0392",
+      "name": "Sliema",
+      "region_id": "malta"
+    },
+    {
+      "id": "city_0393",
+      "name": "Gozo",
+      "region_id": "malta"
+    },
+    {
+      "id": "city_0394",
+      "name": "Ljubljana",
+      "region_id": "slovenia"
+    },
+    {
+      "id": "city_0395",
+      "name": "Bled",
+      "region_id": "slovenia"
+    },
+    {
+      "id": "city_0396",
+      "name": "Piran",
+      "region_id": "slovenia"
+    },
+    {
+      "id": "city_0397",
+      "name": "Postojna",
+      "region_id": "slovenia"
+    },
+    {
+      "id": "city_0398",
+      "name": "Funchal",
+      "region_id": "madeira"
+    },
+    {
+      "id": "city_0399",
+      "name": "Porto Moniz",
+      "region_id": "madeira"
+    },
+    {
+      "id": "city_0400",
+      "name": "Machico",
+      "region_id": "madeira"
+    },
+    {
+      "id": "city_0401",
+      "name": "Santana",
+      "region_id": "madeira"
+    },
+    {
+      "id": "city_0402",
+      "name": "Tenerife",
+      "region_id": "canary-islands"
+    },
+    {
+      "id": "city_0403",
+      "name": "Gran Canaria",
+      "region_id": "canary-islands"
+    },
+    {
+      "id": "city_0404",
+      "name": "Lanzarote",
+      "region_id": "canary-islands"
+    },
+    {
+      "id": "city_0405",
+      "name": "Fuerteventura",
+      "region_id": "canary-islands"
+    },
+    {
+      "id": "city_0406",
+      "name": "Ibiza",
+      "region_id": "balearic-islands"
+    },
+    {
+      "id": "city_0407",
+      "name": "Mallorca",
+      "region_id": "balearic-islands"
+    },
+    {
+      "id": "city_0408",
+      "name": "Menorca",
+      "region_id": "balearic-islands"
+    },
+    {
+      "id": "city_0409",
+      "name": "Formentera",
+      "region_id": "balearic-islands"
+    },
+    {
+      "id": "city_0410",
+      "name": "Hobart",
+      "region_id": "tasmania"
+    },
+    {
+      "id": "city_0411",
+      "name": "Launceston",
+      "region_id": "tasmania"
+    },
+    {
+      "id": "city_0412",
+      "name": "Freycinet",
+      "region_id": "tasmania"
+    },
+    {
+      "id": "city_0413",
+      "name": "Cradle Mountain",
+      "region_id": "tasmania"
+    },
+    {
+      "id": "city_0414",
+      "name": "Manaus",
+      "region_id": "amazon-brazil"
+    },
+    {
+      "id": "city_0415",
+      "name": "Belem",
+      "region_id": "amazon-brazil"
+    },
+    {
+      "id": "city_0416",
+      "name": "Santarem",
+      "region_id": "amazon-brazil"
+    },
+    {
+      "id": "city_0417",
+      "name": "Iquitos",
+      "region_id": "amazon-brazil"
+    },
+    {
+      "id": "city_0418",
+      "name": "Guilin",
+      "region_id": "china-guilin"
+    },
+    {
+      "id": "city_0419",
+      "name": "Yangshuo",
+      "region_id": "china-guilin"
+    },
+    {
+      "id": "city_0420",
+      "name": "Longsheng",
+      "region_id": "china-guilin"
+    },
+    {
+      "id": "city_0421",
+      "name": "Xingping",
+      "region_id": "china-guilin"
+    },
+    {
+      "id": "city_0422",
+      "name": "Osaka",
+      "region_id": "osaka-japan"
+    },
+    {
+      "id": "city_0423",
+      "name": "Kyoto",
+      "region_id": "osaka-japan"
+    },
+    {
+      "id": "city_0424",
+      "name": "Nara",
+      "region_id": "osaka-japan"
+    },
+    {
+      "id": "city_0425",
+      "name": "Kobe",
+      "region_id": "osaka-japan"
+    },
+    {
+      "id": "city_0426",
+      "name": "Himeji",
+      "region_id": "osaka-japan"
+    },
+    {
+      "id": "city_0427",
+      "name": "Sapporo",
+      "region_id": "hokkaido-japan"
+    },
+    {
+      "id": "city_0428",
+      "name": "Hakodate",
+      "region_id": "hokkaido-japan"
+    },
+    {
+      "id": "city_0429",
+      "name": "Asahikawa",
+      "region_id": "hokkaido-japan"
+    },
+    {
+      "id": "city_0430",
+      "name": "Niseko",
+      "region_id": "hokkaido-japan"
+    },
+    {
+      "id": "city_0431",
+      "name": "Naha",
+      "region_id": "okinawa-japan"
+    },
+    {
+      "id": "city_0432",
+      "name": "Ishigaki",
+      "region_id": "okinawa-japan"
+    },
+    {
+      "id": "city_0433",
+      "name": "Miyakojima",
+      "region_id": "okinawa-japan"
+    },
+    {
+      "id": "city_0434",
+      "name": "Zamami",
+      "region_id": "okinawa-japan"
+    },
+    {
+      "id": "city_0435",
+      "name": "Panaji",
+      "region_id": "india-goa"
+    },
+    {
+      "id": "city_0436",
+      "name": "Calangute",
+      "region_id": "india-goa"
+    },
+    {
+      "id": "city_0437",
+      "name": "Anjuna",
+      "region_id": "india-goa"
+    },
+    {
+      "id": "city_0438",
+      "name": "Palolem",
+      "region_id": "india-goa"
+    },
+    {
+      "id": "city_0439",
+      "name": "Bagan",
+      "region_id": "myanmar"
+    },
+    {
+      "id": "city_0440",
+      "name": "Mandalay",
+      "region_id": "myanmar"
+    },
+    {
+      "id": "city_0441",
+      "name": "Yangon",
+      "region_id": "myanmar"
+    },
+    {
+      "id": "city_0442",
+      "name": "Inle Lake",
+      "region_id": "myanmar"
+    },
+    {
+      "id": "city_0443",
+      "name": "Luang Prabang",
+      "region_id": "laos"
+    },
+    {
+      "id": "city_0444",
+      "name": "Vientiane",
+      "region_id": "laos"
+    },
+    {
+      "id": "city_0445",
+      "name": "Vang Vieng",
+      "region_id": "laos"
+    },
+    {
+      "id": "city_0446",
+      "name": "4000 Islands",
+      "region_id": "laos"
+    },
+    {
+      "id": "city_0447",
+      "name": "Samarkand",
+      "region_id": "uzbekistan"
+    },
+    {
+      "id": "city_0448",
+      "name": "Bukhara",
+      "region_id": "uzbekistan"
+    },
+    {
+      "id": "city_0449",
+      "name": "Tashkent",
+      "region_id": "uzbekistan"
+    },
+    {
+      "id": "city_0450",
+      "name": "Khiva",
+      "region_id": "uzbekistan"
+    },
+    {
+      "id": "city_0451",
+      "name": "Medellin",
+      "region_id": "colombia-medellin"
+    },
+    {
+      "id": "city_0452",
+      "name": "Guatape",
+      "region_id": "colombia-medellin"
+    },
+    {
+      "id": "city_0453",
+      "name": "Salento",
+      "region_id": "colombia-medellin"
+    },
+    {
+      "id": "city_0454",
+      "name": "Cartagena",
+      "region_id": "colombia-medellin"
+    },
+    {
+      "id": "city_0455",
+      "name": "Quito",
+      "region_id": "ecuador-quito"
+    },
+    {
+      "id": "city_0456",
+      "name": "Otavalo",
+      "region_id": "ecuador-quito"
+    },
+    {
+      "id": "city_0457",
+      "name": "Banos",
+      "region_id": "ecuador-quito"
+    },
+    {
+      "id": "city_0458",
+      "name": "Cotopaxi",
+      "region_id": "ecuador-quito"
+    },
+    {
+      "id": "city_0459",
+      "name": "Santiago",
+      "region_id": "chile-wine-valleys"
+    },
+    {
+      "id": "city_0460",
+      "name": "Valparaiso",
+      "region_id": "chile-wine-valleys"
+    },
+    {
+      "id": "city_0461",
+      "name": "Casablanca",
+      "region_id": "chile-wine-valleys"
+    },
+    {
+      "id": "city_0462",
+      "name": "Colchagua",
+      "region_id": "chile-wine-valleys"
+    },
+    {
+      "id": "city_0463",
+      "name": "Montevideo",
+      "region_id": "uruguay-montevideo"
+    },
+    {
+      "id": "city_0464",
+      "name": "Punta del Este",
+      "region_id": "uruguay-montevideo"
+    },
+    {
+      "id": "city_0465",
+      "name": "Colonia",
+      "region_id": "uruguay-montevideo"
+    },
+    {
+      "id": "city_0466",
+      "name": "La Paloma",
+      "region_id": "uruguay-montevideo"
+    },
+    {
+      "id": "city_0467",
+      "name": "La Paz",
+      "region_id": "bolivia"
+    },
+    {
+      "id": "city_0468",
+      "name": "Uyuni",
+      "region_id": "bolivia"
+    },
+    {
+      "id": "city_0469",
+      "name": "Sucre",
+      "region_id": "bolivia"
+    },
+    {
+      "id": "city_0470",
+      "name": "Copacabana",
+      "region_id": "bolivia"
+    },
+    {
+      "id": "city_0471",
+      "name": "Nice",
+      "region_id": "french-riviera"
+    },
+    {
+      "id": "city_0472",
+      "name": "Cannes",
+      "region_id": "french-riviera"
+    },
+    {
+      "id": "city_0473",
+      "name": "Monaco",
+      "region_id": "french-riviera"
+    },
+    {
+      "id": "city_0474",
+      "name": "Antibes",
+      "region_id": "french-riviera"
+    },
+    {
+      "id": "city_0475",
+      "name": "Saint-Tropez",
+      "region_id": "french-riviera"
+    },
+    {
+      "id": "city_0476",
+      "name": "Chamonix",
+      "region_id": "french-alps"
+    },
+    {
+      "id": "city_0477",
+      "name": "Annecy",
+      "region_id": "french-alps"
+    },
+    {
+      "id": "city_0478",
+      "name": "Grenoble",
+      "region_id": "french-alps"
+    },
+    {
+      "id": "city_0479",
+      "name": "Courchevel",
+      "region_id": "french-alps"
+    },
+    {
+      "id": "city_0480",
+      "name": "Megeve",
+      "region_id": "french-alps"
+    },
+    {
+      "id": "city_0481",
+      "name": "Cortina",
+      "region_id": "italian-dolomites"
+    },
+    {
+      "id": "city_0482",
+      "name": "Bolzano",
+      "region_id": "italian-dolomites"
+    },
+    {
+      "id": "city_0483",
+      "name": "Val Gardena",
+      "region_id": "italian-dolomites"
+    },
+    {
+      "id": "city_0484",
+      "name": "Ortisei",
+      "region_id": "italian-dolomites"
+    },
+    {
+      "id": "city_0485",
+      "name": "Como",
+      "region_id": "lake-como"
+    },
+    {
+      "id": "city_0486",
+      "name": "Bellagio",
+      "region_id": "lake-como"
+    },
+    {
+      "id": "city_0487",
+      "name": "Varenna",
+      "region_id": "lake-como"
+    },
+    {
+      "id": "city_0488",
+      "name": "Menaggio",
+      "region_id": "lake-como"
+    },
+    {
+      "id": "city_0489",
+      "name": "Monterosso",
+      "region_id": "cinque-terre"
+    },
+    {
+      "id": "city_0490",
+      "name": "Vernazza",
+      "region_id": "cinque-terre"
+    },
+    {
+      "id": "city_0491",
+      "name": "Corniglia",
+      "region_id": "cinque-terre"
+    },
+    {
+      "id": "city_0492",
+      "name": "Manarola",
+      "region_id": "cinque-terre"
+    },
+    {
+      "id": "city_0493",
+      "name": "Riomaggiore",
+      "region_id": "cinque-terre"
+    },
+    {
+      "id": "city_0494",
+      "name": "Kotor",
+      "region_id": "montenegro"
+    },
+    {
+      "id": "city_0495",
+      "name": "Budva",
+      "region_id": "montenegro"
+    },
+    {
+      "id": "city_0496",
+      "name": "Tivat",
+      "region_id": "montenegro"
+    },
+    {
+      "id": "city_0497",
+      "name": "Perast",
+      "region_id": "montenegro"
+    },
+    {
+      "id": "city_0498",
+      "name": "Saranda",
+      "region_id": "albania"
+    },
+    {
+      "id": "city_0499",
+      "name": "Vlore",
+      "region_id": "albania"
+    },
+    {
+      "id": "city_0500",
+      "name": "Ksamil",
+      "region_id": "albania"
+    }
+  ]
+}

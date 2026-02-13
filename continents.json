@@ -1,0 +1,60 @@
+{
+  "continents": [
+    {
+      "id": "europe",
+      "name": "Europe",
+      "description": "Rich history, diverse cultures, excellent infrastructure",
+      "countries_count": 15,
+      "climate_zones": ["mediterranean", "temperate", "alpine", "nordic"],
+      "popular_for": ["history", "culture", "food", "architecture", "art"]
+    },
+    {
+      "id": "asia",
+      "name": "Asia",
+      "description": "Ancient traditions, modern cities, diverse landscapes",
+      "countries_count": 12,
+      "climate_zones": ["tropical", "temperate", "desert", "monsoon"],
+      "popular_for": ["culture", "food", "temples", "beaches", "mountains"]
+    },
+    {
+      "id": "north-america",
+      "name": "North America",
+      "description": "Natural wonders, modern cities, diverse landscapes",
+      "countries_count": 8,
+      "climate_zones": ["temperate", "desert", "tropical", "alpine"],
+      "popular_for": ["national-parks", "cities", "beaches", "road-trips"]
+    },
+    {
+      "id": "south-america",
+      "name": "South America",
+      "description": "Amazon rainforest, Andes mountains, vibrant cultures",
+      "countries_count": 6,
+      "climate_zones": ["tropical", "temperate", "alpine", "desert"],
+      "popular_for": ["nature", "adventure", "culture", "beaches", "wildlife"]
+    },
+    {
+      "id": "africa",
+      "name": "Africa",
+      "description": "Safari adventures, ancient civilizations, diverse wildlife",
+      "countries_count": 5,
+      "climate_zones": ["desert", "tropical", "mediterranean", "savanna"],
+      "popular_for": ["safari", "wildlife", "beaches", "culture", "history"]
+    },
+    {
+      "id": "oceania",
+      "name": "Oceania",
+      "description": "Stunning beaches, unique wildlife, island paradises",
+      "countries_count": 3,
+      "climate_zones": ["tropical", "temperate", "desert"],
+      "popular_for": ["beaches", "diving", "nature", "adventure", "islands"]
+    },
+    {
+      "id": "middle-east",
+      "name": "Middle East",
+      "description": "Ancient history, modern luxury, desert landscapes",
+      "countries_count": 1,
+      "climate_zones": ["desert", "mediterranean"],
+      "popular_for": ["luxury", "culture", "history", "beaches", "shopping"]
+    }
+  ]
+}
