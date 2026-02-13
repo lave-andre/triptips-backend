@@ -4,12 +4,12 @@ from typing import List, Dict, Any, Optional
 class TravelMatcher:
     """
     Matches group travel preferences to destinations using a scoring algorithm.
+    Works with the new enhanced database structure (150 regions, 500 cities).
     """
 
     def __init__(self, regions_file: str, cities_file: str, continents_file: Optional[str] = None):
         """
         Load destination databases.
-        If continents_file is provided, build a name->id mapping for geographic matching.
         """
         # Load regions
         with open(regions_file, 'r') as f:
@@ -48,6 +48,75 @@ class TravelMatcher:
         else:
             print("❌ No regions loaded!")
 
+    def _flatten_activities(self, activities_obj: Dict) -> List[str]:
+        """
+        Convert nested activities object to flat list.
+        NEW DB: {"water": ["swimming", "diving"], "cultural": ["museums"]}
+        Returns: ["swimming", "diving", "museums"]
+        """
+        if isinstance(activities_obj, list):
+            return activities_obj  # Already a list
+        
+        flat_list = []
+        if isinstance(activities_obj, dict):
+            for category, items in activities_obj.items():
+                if isinstance(items, list):
+                    flat_list.extend(items)
+        return flat_list
+
+    def _extract_style_tags(self, style_obj: Dict) -> List[str]:
+        """
+        Convert style scores to tags.
+        NEW DB: {"romantic_score": 95, "adventure_level": 80, "party_scene": 60}
+        Returns: ["romantic", "adventure"] (scores >= 75)
+        """
+        if isinstance(style_obj, list):
+            return style_obj  # Already a list
+        
+        tags = []
+        if isinstance(style_obj, dict):
+            # Map score keys to simple tags
+            mappings = {
+                'romantic_score': 'romantic',
+                'adventure_level': 'adventure',
+                'party_scene': 'party',
+                'culture_richness': 'cultural',
+                'nature_immersion': 'nature',
+                'luxury_level': 'luxury'
+            }
+            for key, tag in mappings.items():
+                if style_obj.get(key, 0) >= 75:
+                    tags.append(tag)
+        return tags
+
+    def _get_budget_range(self, budget_ranges_obj: Dict, user_budget: List[int]) -> List[int]:
+        """
+        Get appropriate budget range from new database structure.
+        NEW DB: {"budget": [50, 95], "moderate": [95, 175], "comfortable": [175, 320], "luxury": [320, 650]}
+        Returns best matching range as [min, max]
+        """
+        if isinstance(budget_ranges_obj, list):
+            return budget_ranges_obj  # Old format
+        
+        if not isinstance(budget_ranges_obj, dict):
+            return [50, 150]  # Default
+        
+        user_min, user_max = user_budget
+        user_avg = (user_min + user_max) / 2
+        
+        # Find best matching tier
+        tiers = ['budget', 'moderate', 'comfortable', 'luxury']
+        for tier in tiers:
+            if tier in budget_ranges_obj:
+                tier_range = budget_ranges_obj[tier]
+                if isinstance(tier_range, list) and len(tier_range) == 2:
+                    tier_min, tier_max = tier_range
+                    if user_avg <= tier_max:
+                        return tier_range
+        
+        # Return moderate as fallback
+        return budget_ranges_obj.get('moderate', [50, 150])
+
     def calculate_region_match(self, users_preferences: List[Dict], geographic_scope: str, trip_type: str = "friends_vacation") -> List[Dict]:
         """
         Calculate match scores for all regions based on user preferences.
@@ -72,14 +141,14 @@ class TravelMatcher:
             elif scope_id == region_continent_id:
                 is_geo_match = True
             else:
-                # Also check tags (normalized)
-                tags = region.get('tags', [])
+                # Also check environment tags (for backward compatibility)
+                tags = region.get('environment', [])
                 normalized_tags = [tag.lower().replace(' ', '-') for tag in tags]
                 if scope_id in normalized_tags or geographic_scope.lower() in normalized_tags:
                     is_geo_match = True
 
             if not is_geo_match:
-                print(f"    ❌ Geographic mismatch (continent ID: {region_continent_id})")
+                print(f"    ❌ Geographic mismatch (continent: {region_continent_id}, looking for: {scope_id})")
                 continue
 
             print(f"    ✅ Geographic match")
@@ -93,31 +162,41 @@ class TravelMatcher:
                 match_reasons = []
                 mismatch_reasons = []
 
-                # Environment match
-                env_match = set(user.get('environment', [])) & set(region.get('environment', []))
+                # Environment match (same in both old and new DB)
+                user_env = set(user.get('environment', []))
+                region_env = set(region.get('environment', []))
+                env_match = user_env & region_env
+                
                 if env_match:
                     user_score += 10 * len(env_match)
                     match_reasons.append(f"Environment: {', '.join(list(env_match)[:2])}")
                 else:
                     mismatch_reasons.append("Environment doesn't match your preference")
 
-                # Style match
-                style_match = set(user.get('style', [])) & set(region.get('style', []))
+                # Style match (NEW: convert style object to tags)
+                user_style = set(user.get('style', []))
+                region_style_obj = region.get('style', {})
+                region_style_tags = set(self._extract_style_tags(region_style_obj))
+                style_match = user_style & region_style_tags
+                
                 if style_match:
                     user_score += 8 * len(style_match)
                     match_reasons.append(f"Style: {', '.join(list(style_match)[:2])}")
 
-                # Activities match
+                # Activities match (NEW: flatten nested activities)
                 user_activities = set(user.get('activities', []))
-                region_activities = set(region.get('activities', []))
-                activity_match = user_activities & region_activities
+                region_activities_obj = region.get('activities', {})
+                region_activities_flat = set(self._flatten_activities(region_activities_obj))
+                activity_match = user_activities & region_activities_flat
+                
                 if activity_match:
                     user_score += 5 * len(activity_match)
                     match_reasons.append(f"Activities: {', '.join(list(activity_match)[:2])}")
 
-                # Budget match
+                # Budget match (NEW: handle budget_ranges object)
                 user_budget_min, user_budget_max = user.get('budget_range', [50, 150])
-                region_budget_min, region_budget_max = region.get('budget_range', [50, 150])
+                region_budget_obj = region.get('budget_ranges', {})
+                region_budget_min, region_budget_max = self._get_budget_range(region_budget_obj, [user_budget_min, user_budget_max])
 
                 # Check if ranges overlap
                 if user_budget_max >= region_budget_min and region_budget_max >= user_budget_min:
@@ -186,7 +265,8 @@ class TravelMatcher:
 
             for user in users_preferences:
                 user_score = 0
-                # Environment match
+                
+                # Environment match (cities have simpler structure)
                 env_match = set(user.get('environment', [])) & set(city.get('environment', []))
                 if env_match:
                     user_score += 10 * len(env_match)
@@ -239,21 +319,36 @@ class TravelMatcher:
         pros = []
         if region.get('environment'):
             pros.append(f"{', '.join(region['environment'][:2])} environment")
-        if region.get('style'):
-            pros.append(f"{', '.join(region['style'][:2])} vibe")
-        if region.get('activities'):
-            pros.append(f"{', '.join(region['activities'][:2])} available")
+        
+        # NEW: Handle style as object
+        style_obj = region.get('style', {})
+        if isinstance(style_obj, dict):
+            style_tags = self._extract_style_tags(style_obj)
+            if style_tags:
+                pros.append(f"{', '.join(style_tags[:2])} vibe")
+        elif isinstance(style_obj, list) and style_obj:
+            pros.append(f"{', '.join(style_obj[:2])} vibe")
+        
+        # NEW: Handle activities as nested object
+        activities_obj = region.get('activities', {})
+        if isinstance(activities_obj, dict):
+            # Get first 2 activities from any category
+            flat_activities = self._flatten_activities(activities_obj)[:2]
+            if flat_activities:
+                pros.append(f"{', '.join(flat_activities)} available")
+        elif isinstance(activities_obj, list) and activities_obj:
+            pros.append(f"{', '.join(activities_obj[:2])} available")
+        
         if user_breakdown:
-            # Count how many users it's good for
             good_count = sum(1 for u in user_breakdown if u['match_percentage'] >= 50)
             pros.append(f"Good for {good_count}/{len(user_breakdown)} travelers")
+        
         return pros[:3]
 
     def _extract_cons(self, region: Dict, user_breakdown: List[Dict]) -> List[str]:
         """Extract top cons for a region"""
         cons = []
         if user_breakdown:
-            # Count how many users it's a compromise for
             compromise_count = sum(1 for u in user_breakdown if u['match_percentage'] < 50)
             if compromise_count > 0:
                 cons.append(f"Compromise for {compromise_count} traveler(s)")
