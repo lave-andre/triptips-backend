@@ -147,6 +147,9 @@ def calculate_matches(trip_id):
     
     # Get geographic scope from trip
     geographic_scope = trip.get('geographic_scope', 'Anywhere')
+
+    print(f"DEBUG: Participants = {trip['participants']}")
+    print(f"DEBUG: Geographic scope = {geographic_scope}")
     
     try:
         results = MATCHER.calculate_region_match(
@@ -209,7 +212,9 @@ def calculate_matches(trip_id):
                     for ub in r['user_breakdown']
                 ]
             })
-        
+        print(f"DEBUG: Got {len(results)} results")
+        for r in results[:3]:
+            print(f"  - {r['region']['name']}: {r['score']}")
         # Save results
         trip['results'] = {
             "regions": formatted_results,
