@@ -25,7 +25,6 @@ class TravelMatcher:
             else:
                 self.cities = data
 
-        # ✅ Debug: print how many regions and cities were loaded
         print(f"✅ Loaded {len(self.regions)} regions and {len(self.cities)} cities")
         if self.regions:
             print(f"✅ Sample region: {self.regions[0].get('name', 'NONE')}")
@@ -39,35 +38,44 @@ class TravelMatcher:
         """
         print(f"🔍 calculate_region_match called with scope: {geographic_scope}, users: {len(users_preferences)}")
         scored_regions = []
-        
+
+        # Normalize user's geographic scope once
+        user_scope_norm = geographic_scope.lower().replace(' ', '-') if geographic_scope else ''
+
         for region in self.regions:
             region_name = region.get('name', 'unknown')
             print(f"  Checking region: {region_name}")
 
-            # Skip if geographic scope doesn't match
-            # New database uses "continent" field (string)
-           # Normalize both sides for comparison
-        user_scope = geographic_scope.lower().replace(' ', '-') if geographic_scope else ''
-        region_continent = region.get('continent', '').lower()
-        
-        if geographic_scope != "Anywhere" and user_scope != region_continent:
-            # Also check tags (normalized)
-            normalized_tags = [tag.lower().replace(' ', '-') for tag in region.get('tags', [])]
-            if user_scope not in normalized_tags:
+            # Geographic scope matching (case-insensitive, normalized)
+            region_continent = region.get('continent', '').lower()
+            is_geo_match = False
+
+            if geographic_scope == "Anywhere":
+                is_geo_match = True
+            elif user_scope_norm == region_continent:
+                is_geo_match = True
+            else:
+                # Check tags (if any)
+                tags = region.get('tags', [])
+                normalized_tags = [tag.lower().replace(' ', '-') for tag in tags]
+                if user_scope_norm in normalized_tags:
+                    is_geo_match = True
+
+            if not is_geo_match:
                 print(f"    ❌ Geographic mismatch (continent: {region_continent})")
                 continue
-            
+
             print(f"    ✅ Geographic match")
 
             # Calculate score for this region
             region_score = 0
             user_breakdown = []
-            
+
             for user in users_preferences:
                 user_score = 0
                 match_reasons = []
                 mismatch_reasons = []
-                
+
                 # Environment match
                 env_match = set(user.get('environment', [])) & set(region.get('environment', []))
                 if env_match:
@@ -75,13 +83,13 @@ class TravelMatcher:
                     match_reasons.append(f"Environment: {', '.join(list(env_match)[:2])}")
                 else:
                     mismatch_reasons.append("Environment doesn't match your preference")
-                
+
                 # Style match
                 style_match = set(user.get('style', [])) & set(region.get('style', []))
                 if style_match:
                     user_score += 8 * len(style_match)
                     match_reasons.append(f"Style: {', '.join(list(style_match)[:2])}")
-                
+
                 # Activities match
                 user_activities = set(user.get('activities', []))
                 region_activities = set(region.get('activities', []))
@@ -89,11 +97,11 @@ class TravelMatcher:
                 if activity_match:
                     user_score += 5 * len(activity_match)
                     match_reasons.append(f"Activities: {', '.join(list(activity_match)[:2])}")
-                
+
                 # Budget match
                 user_budget_min, user_budget_max = user.get('budget_range', [50, 150])
                 region_budget_min, region_budget_max = region.get('budget_range', [50, 150])
-                
+
                 # Check if ranges overlap
                 if user_budget_max >= region_budget_min and region_budget_max >= user_budget_min:
                     user_score += 5
@@ -101,11 +109,11 @@ class TravelMatcher:
                 else:
                     mismatch_reasons.append("Outside your budget range")
                     user_score -= 10
-                
+
                 # Normalize to 0-100
                 max_possible_score = 30  # Environment (max 20) + Style (max 16) + Activities (max 15) + Budget (5) = 56, but we cap at 30
                 normalized_score = min(100, (user_score / 30) * 100) if user_score > 0 else 0
-                
+
                 # Determine sentiment
                 if normalized_score >= 70:
                     sentiment = "Perfect for"
@@ -113,7 +121,7 @@ class TravelMatcher:
                     sentiment = "Good for"
                 else:
                     sentiment = "Compromise for"
-                
+
                 region_score += normalized_score
                 user_breakdown.append({
                     "user_name": user.get('name', 'Anonymous'),
@@ -122,10 +130,10 @@ class TravelMatcher:
                     "match_reasons": match_reasons[:3],
                     "mismatch_reasons": mismatch_reasons[:2]
                 })
-            
+
             # Average score across users
             avg_score = region_score / len(users_preferences) if users_preferences else 0
-            
+
             # Only include if average score > 20 (threshold)
             if avg_score > 20:
                 scored_regions.append({
@@ -138,7 +146,7 @@ class TravelMatcher:
                         "cons": self._extract_cons(region, user_breakdown)
                     }
                 })
-        
+
         # Sort by score descending
         scored_regions.sort(key=lambda x: x['score'], reverse=True)
         print(f"🔚 Returning {len(scored_regions)} regions")
@@ -150,15 +158,15 @@ class TravelMatcher:
         """
         # Find cities belonging to this region
         region_cities = [c for c in self.cities if c.get('region_id') == region_id or c.get('region') == region_id]
-        
+
         if not region_cities:
             return []
-        
+
         scored_cities = []
         for city in region_cities:
             city_score = 0
             user_breakdown = []
-            
+
             for user in users_preferences:
                 user_score = 0
                 # Simplified scoring for cities (can be expanded)
@@ -166,36 +174,36 @@ class TravelMatcher:
                 env_match = set(user.get('environment', [])) & set(city.get('environment', []))
                 if env_match:
                     user_score += 10 * len(env_match)
-                
+
                 # Activities match
                 act_match = set(user.get('activities', [])) & set(city.get('activities', []))
                 if act_match:
                     user_score += 5 * len(act_match)
-                
+
                 # Budget match
                 user_budget_min, user_budget_max = user.get('budget_range', [50, 150])
                 city_budget_min, city_budget_max = city.get('budget_range', [50, 150])
                 if user_budget_max >= city_budget_min and city_budget_max >= user_budget_min:
                     user_score += 5
-                
+
                 normalized_score = min(100, (user_score / 20) * 100) if user_score > 0 else 0
-                
+
                 if normalized_score >= 70:
                     sentiment = "Perfect for"
                 elif normalized_score >= 50:
                     sentiment = "Good for"
                 else:
                     sentiment = "Compromise for"
-                
+
                 city_score += normalized_score
                 user_breakdown.append({
                     "user_name": user.get('name', 'Anonymous'),
                     "match_percentage": round(normalized_score, 1),
                     "sentiment": sentiment
                 })
-            
+
             avg_score = city_score / len(users_preferences) if users_preferences else 0
-            
+
             scored_cities.append({
                 "city": city,
                 "score": avg_score,
@@ -206,7 +214,7 @@ class TravelMatcher:
                     "pros": self._city_pros(city, user_breakdown)
                 }
             })
-        
+
         scored_cities.sort(key=lambda x: x['score'], reverse=True)
         return scored_cities[:5]
 
