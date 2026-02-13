@@ -7,23 +7,12 @@ class TravelMatcher:
     Matches group travel preferences to destinations using a scoring algorithm.
     """
     
-def __init__(self, regions_file: str, cities_file: str):
-    """Load destination databases"""
-    with open(regions_file, 'r') as f:
-        data = json.load(f)
-        # New format: data is an object with "regions" key containing the array
-        if isinstance(data, dict) and "regions" in data:
-            self.regions = data["regions"]
-        else:
-            # Fallback for old format (direct array)
-            self.regions = data
-
-    with open(cities_file, 'r') as f:
-        data = json.load(f)
-        if isinstance(data, dict) and "cities" in data:
-            self.cities = data["cities"]
-        else:
-            self.cities = data
+    def __init__(self, regions_file: str, cities_file: str):
+        """Load destination databases"""
+        with open(regions_file, 'r') as f:
+            self.regions = json.load(f)
+        with open(cities_file, 'r') as f:
+            self.cities = json.load(f)
     
     def calculate_region_match(
         self,
