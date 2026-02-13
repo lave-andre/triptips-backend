@@ -18,8 +18,8 @@ CORS(app, resources={r"/api/*": {"origins": "*", "methods": ["GET", "POST", "OPT
 
 # Initialize matcher
 MATCHER = TravelMatcher(
-    'regions_database.json',
-    'cities_database.json'
+    'regions.json',
+    'cities.json'
 )
 # In-memory storage for trips (in production, use a real database)
 TRIPS = {}
