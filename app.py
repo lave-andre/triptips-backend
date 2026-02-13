@@ -10,7 +10,6 @@ import os
 import sys
 
 # Add the travel_matcher directory to path
-sys.path.insert(0, '/home/claude/travel_matcher')
 from matcher import TravelMatcher
 
 app = Flask(__name__)
