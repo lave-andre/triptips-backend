@@ -153,7 +153,12 @@ class TravelMatcher:
 
             print(f"    ✅ Geographic match")
 
-            # Calculate score for this region (around line 100)
+            print(f"    ✅ Geographic match")
+
+            # Calculate score for this region
+            region_score = 0
+            user_breakdown = []
+            
             for user in users_preferences:
                 user_score = 0
                 match_reasons = []
