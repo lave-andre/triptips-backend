@@ -153,67 +153,70 @@ class TravelMatcher:
 
             print(f"    ✅ Geographic match")
 
-            # Calculate score for this region
-            region_score = 0
-            user_breakdown = []
-
+            # Calculate score for this region (around line 100)
             for user in users_preferences:
                 user_score = 0
                 match_reasons = []
                 mismatch_reasons = []
-
-                # Environment match (same in both old and new DB)
+            
+                # Count user's total selections to make scoring fair
+                user_env_count = len(user.get('environment', []))
+                user_style_count = len(user.get('style', []))
+                user_act_count = len(user.get('activities', []))
+                
+                # Environment match - score based on % of user's selections matched
                 user_env = set(user.get('environment', []))
                 region_env = set(region.get('environment', []))
                 env_match = user_env & region_env
-                
-                if env_match:
-                    user_score += 10 * len(env_match)
-                    match_reasons.append(f"Environment: {', '.join(list(env_match)[:2])}")
+                if user_env_count > 0:
+                    env_percent = len(env_match) / user_env_count
+                    user_score += 30 * env_percent  # Max 30 points for environment
+                    if env_match:
+                        match_reasons.append(f"Environment: {', '.join(list(env_match)[:2])}")
                 else:
-                    mismatch_reasons.append("Environment doesn't match your preference")
-
-                # Style match (NEW: convert style object to tags)
+                    mismatch_reasons.append("Environment doesn't match")
+            
+                # Style match
                 user_style = set(user.get('style', []))
                 region_style_obj = region.get('style', {})
                 region_style_tags = set(self._extract_style_tags(region_style_obj))
                 style_match = user_style & region_style_tags
-                
-                if style_match:
-                    user_score += 8 * len(style_match)
-                    match_reasons.append(f"Style: {', '.join(list(style_match)[:2])}")
-
-                # Activities match (NEW: flatten nested activities)
+                if user_style_count > 0:
+                    style_percent = len(style_match) / user_style_count
+                    user_score += 25 * style_percent  # Max 25 points for style
+                    if style_match:
+                        match_reasons.append(f"Style: {', '.join(list(style_match)[:2])}")
+            
+                # Activities match
                 user_activities = set(user.get('activities', []))
                 region_activities_obj = region.get('activities', {})
                 region_activities_flat = set(self._flatten_activities(region_activities_obj))
                 activity_match = user_activities & region_activities_flat
-                
-                if activity_match:
-                    user_score += 5 * len(activity_match)
-                    match_reasons.append(f"Activities: {', '.join(list(activity_match)[:2])}")
-
-                # Budget match (NEW: handle budget_ranges object)
+                if user_act_count > 0:
+                    activity_percent = len(activity_match) / user_act_count
+                    user_score += 30 * activity_percent  # Max 30 points for activities
+                    if activity_match:
+                        match_reasons.append(f"Activities: {', '.join(list(activity_match)[:2])}")
+            
+                # Budget match
                 user_budget_min, user_budget_max = user.get('budget_range', [50, 150])
                 region_budget_obj = region.get('budget_ranges', {})
                 region_budget_min, region_budget_max = self._get_budget_range(region_budget_obj, [user_budget_min, user_budget_max])
-
-                # Check if ranges overlap
+                
                 if user_budget_max >= region_budget_min and region_budget_max >= user_budget_min:
-                    user_score += 5
+                    user_score += 15  # Budget compatible
                     match_reasons.append("Budget range compatible")
                 else:
                     mismatch_reasons.append("Outside your budget range")
                     user_score -= 10
-
-                # Normalize to 0-100
-                max_possible_score = 30
-                normalized_score = min(100, (user_score / 30) * 100) if user_score > 0 else 0
-
+            
+                # Score is already 0-100 (max is 30+25+30+15 = 100)
+                normalized_score = max(0, min(100, user_score))
+                
                 # Determine sentiment
-                if normalized_score >= 70:
+                if normalized_score >= 80:
                     sentiment = "Perfect for"
-                elif normalized_score >= 50:
+                elif normalized_score >= 60:
                     sentiment = "Good for"
                 else:
                     sentiment = "Compromise for"
