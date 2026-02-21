@@ -294,6 +294,9 @@ def get_cities(trip_id):
     
     data = request.json
     region_id = data.get('region_id')
+
+    print(f"🏙️ get_cities called for region_id: {region_id}", flush=True)
+    print(f"🏙️ Trip has {len(trip['participants'])} participants", flush=True)
     
     trip = TRIPS[trip_id]
     
