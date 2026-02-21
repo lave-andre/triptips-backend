@@ -53,6 +53,8 @@ def create_trip():
         "trip_name": data.get('trip_name', 'Untitled Trip'),
         "organizer_name": data.get('organizer_name'),
         "geographic_scope": data.get('geographic_scope', 'Anywhere'),
+        "trip_type": data.get('trip_type', 'friends_adventure'),
+        "duration_days": data.get('duration_days', 7),
         "created_at": datetime.now().isoformat(),
         "status": "collecting_preferences",
         "participants": [],
