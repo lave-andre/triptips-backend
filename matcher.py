@@ -40,13 +40,13 @@ class TravelMatcher:
                             if name and cid:
                                 self.continent_name_to_id[name] = cid
             except Exception as e:
-                print(f"⚠️ Could not load continents file: {e}")
+                print(f"⚠️ Could not load continents file: {e}", flush=True)
 
-        print(f"✅ Loaded {len(self.regions)} regions and {len(self.cities)} cities")
+        print(f"✅ Loaded {len(self.regions)} regions and {len(self.cities)} cities", flush=True)
         if self.regions:
-            print(f"✅ Sample region: {self.regions[0].get('name', 'NONE')}")
+            print(f"✅ Sample region: {self.regions[0].get('name', 'NONE')}", flush=True)
         else:
-            print("❌ No regions loaded!")
+            print("❌ No regions loaded!", flush=True)
 
     def _flatten_activities(self, activities_obj: Dict) -> List[str]:
         """
@@ -122,7 +122,7 @@ class TravelMatcher:
         Calculate match scores for all regions based on user preferences.
         Returns sorted list of regions with match details.
         """
-        print(f"🔍 calculate_region_match called with scope: {geographic_scope}, users: {len(users_preferences)}")
+        print(f"🔍 calculate_region_match called with scope: {geographic_scope}, users: {len(users_preferences)}", flush=True)
         scored_regions = []
 
         # Convert user's geographic scope (continent name) to continent ID
@@ -130,7 +130,7 @@ class TravelMatcher:
 
         for region in self.regions:
             region_name = region.get('name', 'unknown')
-            print(f"  Checking region: {region_name}")
+            print(f"  Checking region: {region_name}", flush=True)
 
             # Geographic scope matching using continent ID
             region_continent_id = region.get('continent', '').lower()
@@ -148,12 +148,12 @@ class TravelMatcher:
                     is_geo_match = True
 
             if not is_geo_match:
-                print(f"    ❌ Geographic mismatch (continent: {region_continent_id}, looking for: {scope_id})")
+                print(f"    ❌ Geographic mismatch (continent: {region_continent_id}, looking for: {scope_id})", flush=True)
                 continue
 
-            print(f"    ✅ Geographic match")
+            print(f"    ✅ Geographic match", flush=True)
 
-            print(f"    ✅ Geographic match")
+            print(f"    ✅ Geographic match", flush=True)
 
             # Calculate score for this region
             region_score = 0
@@ -253,47 +253,47 @@ class TravelMatcher:
 
         # Sort by score descending
         scored_regions.sort(key=lambda x: x['score'], reverse=True)
-        print(f"🔚 Returning {len(scored_regions)} regions")
+        print(f"🔚 Returning {len(scored_regions)} regions", flush=True)
         return scored_regions[:10]
 
     def calculate_city_match(self, region_id: str, users_preferences: List[Dict], trip_type: str = "friends_vacation") -> List[Dict]:
         """
         Calculate match scores for cities within a specific region.
         """
-        print(f"🔍 calculate_city_match called for region: {region_id}")
-        print(f"   Users: {[u.get('name') for u in users_preferences]}")
+        print(f"🔍 calculate_city_match called for region: {region_id}", flush=True)
+        print(f"   Users: {[u.get('name') for u in users_preferences]}", flush=True)
         
         region_cities = [c for c in self.cities if c.get('region_id') == region_id or c.get('region') == region_id]
-        print(f"   Found {len(region_cities)} cities in this region")
+        print(f"   Found {len(region_cities)} cities in this region", flush=True)
         
         if not region_cities:
             return []
         
         if region_cities:
-            print(f"   Sample city structure: {list(region_cities[0].keys())}")
-            print(f"   Sample city: {region_cities[0].get('name', 'NO NAME')}")
+            print(f"   Sample city structure: {list(region_cities[0].keys())}", flush=True)
+            print(f"   Sample city: {region_cities[0].get('name', 'NO NAME')}", flush=True)
     
         scored_cities = []
         for city in region_cities:
             city_score = 0
             user_breakdown = []
             
-            print(f"   Checking city: {city.get('name', 'unknown')}")
+            print(f"   Checking city: {city.get('name', 'unknown')}", flush=True)
     
             for user in users_preferences:
                 user_score = 0
                 
-                print(f"      User {user.get('name')}: env={user.get('environment')}, activities={user.get('activities')[:3] if user.get('activities') else []}")
+                print(f"      User {user.get('name')}: env={user.get('environment')}, activities={user.get('activities')[:3] if user.get('activities') else []}", flush=True)
                 
                 # Environment match
                 user_env = set(user.get('environment', []))
                 city_env = set(city.get('environment', []))
-                print(f"         City env: {city_env}")
+                print(f"         City env: {city_env}", flush=True)
                 env_match = user_env & city_env
                 if len(env_match) > 0:
                     env_score = 30 * (len(env_match) / max(len(user_env), 1))
                     user_score += env_score
-                    print(f"         Env match: {env_match}, score: +{env_score}")
+                    print(f"         Env match: {env_match}, score: +{env_score}", flush=True)
     
                 # Activities match
                 user_activities = set(user.get('activities', []))
@@ -303,12 +303,12 @@ class TravelMatcher:
                 else:
                     city_activities = set(city_activities_obj) if isinstance(city_activities_obj, list) else set()
                 
-                print(f"         City activities: {list(city_activities)[:5] if city_activities else 'NONE'}")
+                print(f"         City activities: {list(city_activities)[:5] if city_activities else 'NONE'}", flush=True)
                 activity_match = user_activities & city_activities
                 if len(activity_match) > 0:
                     act_score = 40 * (len(activity_match) / max(len(user_activities), 1))
                     user_score += act_score
-                    print(f"         Activity match: {activity_match}, score: +{act_score}")
+                    print(f"         Activity match: {activity_match}, score: +{act_score}", flush=True)
     
                 # Style match
                 user_style = set(user.get('style', []))
@@ -318,15 +318,15 @@ class TravelMatcher:
                 else:
                     city_style = set(city_style_obj) if isinstance(city_style_obj, list) else set()
                 
-                print(f"         City style: {city_style}")
+                print(f"         City style: {city_style}", flush=True)
                 style_match = user_style & city_style
                 if len(style_match) > 0:
                     style_score = 30 * (len(style_match) / max(len(user_style), 1))
                     user_score += style_score
-                    print(f"         Style match: {style_match}, score: +{style_score}")
+                    print(f"         Style match: {style_match}, score: +{style_score}", flush=True)
     
                 normalized_score = min(100, user_score)
-                print(f"         TOTAL for {user.get('name')}: {normalized_score}")
+                print(f"         TOTAL for {user.get('name')}: {normalized_score}", flush=True)
     
                 if normalized_score >= 70:
                     sentiment = "Perfect for"
