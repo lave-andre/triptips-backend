@@ -260,25 +260,40 @@ class TravelMatcher:
         """
         Calculate match scores for cities within a specific region.
         """
+        print(f"🔍 calculate_city_match called for region: {region_id}")
+        print(f"   Users: {[u.get('name') for u in users_preferences]}")
+        
         region_cities = [c for c in self.cities if c.get('region_id') == region_id or c.get('region') == region_id]
-    
+        print(f"   Found {len(region_cities)} cities in this region")
+        
         if not region_cities:
             return []
+        
+        if region_cities:
+            print(f"   Sample city structure: {list(region_cities[0].keys())}")
+            print(f"   Sample city: {region_cities[0].get('name', 'NO NAME')}")
     
         scored_cities = []
         for city in region_cities:
             city_score = 0
             user_breakdown = []
+            
+            print(f"   Checking city: {city.get('name', 'unknown')}")
     
             for user in users_preferences:
                 user_score = 0
                 
+                print(f"      User {user.get('name')}: env={user.get('environment')}, activities={user.get('activities')[:3] if user.get('activities') else []}")
+                
                 # Environment match
                 user_env = set(user.get('environment', []))
                 city_env = set(city.get('environment', []))
+                print(f"         City env: {city_env}")
                 env_match = user_env & city_env
                 if len(env_match) > 0:
-                    user_score += 30 * (len(env_match) / max(len(user_env), 1))
+                    env_score = 30 * (len(env_match) / max(len(user_env), 1))
+                    user_score += env_score
+                    print(f"         Env match: {env_match}, score: +{env_score}")
     
                 # Activities match
                 user_activities = set(user.get('activities', []))
@@ -288,9 +303,12 @@ class TravelMatcher:
                 else:
                     city_activities = set(city_activities_obj) if isinstance(city_activities_obj, list) else set()
                 
+                print(f"         City activities: {list(city_activities)[:5] if city_activities else 'NONE'}")
                 activity_match = user_activities & city_activities
                 if len(activity_match) > 0:
-                    user_score += 40 * (len(activity_match) / max(len(user_activities), 1))
+                    act_score = 40 * (len(activity_match) / max(len(user_activities), 1))
+                    user_score += act_score
+                    print(f"         Activity match: {activity_match}, score: +{act_score}")
     
                 # Style match
                 user_style = set(user.get('style', []))
@@ -300,11 +318,15 @@ class TravelMatcher:
                 else:
                     city_style = set(city_style_obj) if isinstance(city_style_obj, list) else set()
                 
+                print(f"         City style: {city_style}")
                 style_match = user_style & city_style
                 if len(style_match) > 0:
-                    user_score += 30 * (len(style_match) / max(len(user_style), 1))
+                    style_score = 30 * (len(style_match) / max(len(user_style), 1))
+                    user_score += style_score
+                    print(f"         Style match: {style_match}, score: +{style_score}")
     
                 normalized_score = min(100, user_score)
+                print(f"         TOTAL for {user.get('name')}: {normalized_score}")
     
                 if normalized_score >= 70:
                     sentiment = "Perfect for"
