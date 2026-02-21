@@ -257,84 +257,84 @@ class TravelMatcher:
         return scored_regions[:10]
 
     def calculate_city_match(self, region_id: str, users_preferences: List[Dict], trip_type: str = "friends_vacation") -> List[Dict]:
-    """
-    Calculate match scores for cities within a specific region.
-    """
-    region_cities = [c for c in self.cities if c.get('region_id') == region_id or c.get('region') == region_id]
-
-    if not region_cities:
-        return []
-
-    scored_cities = []
-    for city in region_cities:
-        city_score = 0
-        user_breakdown = []
-
-        for user in users_preferences:
-            user_score = 0
-            
-            # Environment match
-            user_env = set(user.get('environment', []))
-            city_env = set(city.get('environment', []))
-            env_match = user_env & city_env
-            if len(env_match) > 0:
-                user_score += 30 * (len(env_match) / max(len(user_env), 1))
-
-            # Activities match
-            user_activities = set(user.get('activities', []))
-            city_activities_obj = city.get('activities', {})
-            if isinstance(city_activities_obj, dict):
-                city_activities = set(self._flatten_activities(city_activities_obj))
-            else:
-                city_activities = set(city_activities_obj) if isinstance(city_activities_obj, list) else set()
-            
-            activity_match = user_activities & city_activities
-            if len(activity_match) > 0:
-                user_score += 40 * (len(activity_match) / max(len(user_activities), 1))
-
-            # Style match
-            user_style = set(user.get('style', []))
-            city_style_obj = city.get('style', {})
-            if isinstance(city_style_obj, dict):
-                city_style = set(self._extract_style_tags(city_style_obj))
-            else:
-                city_style = set(city_style_obj) if isinstance(city_style_obj, list) else set()
-            
-            style_match = user_style & city_style
-            if len(style_match) > 0:
-                user_score += 30 * (len(style_match) / max(len(user_style), 1))
-
-            normalized_score = min(100, user_score)
-
-            if normalized_score >= 70:
-                sentiment = "Perfect for"
-            elif normalized_score >= 50:
-                sentiment = "Good for"
-            else:
-                sentiment = "Compromise for"
-
-            city_score += normalized_score
-            user_breakdown.append({
-                "user_name": user.get('name', 'Anonymous'),
-                "match_percentage": round(normalized_score, 1),
-                "sentiment": sentiment
+        """
+        Calculate match scores for cities within a specific region.
+        """
+        region_cities = [c for c in self.cities if c.get('region_id') == region_id or c.get('region') == region_id]
+    
+        if not region_cities:
+            return []
+    
+        scored_cities = []
+        for city in region_cities:
+            city_score = 0
+            user_breakdown = []
+    
+            for user in users_preferences:
+                user_score = 0
+                
+                # Environment match
+                user_env = set(user.get('environment', []))
+                city_env = set(city.get('environment', []))
+                env_match = user_env & city_env
+                if len(env_match) > 0:
+                    user_score += 30 * (len(env_match) / max(len(user_env), 1))
+    
+                # Activities match
+                user_activities = set(user.get('activities', []))
+                city_activities_obj = city.get('activities', {})
+                if isinstance(city_activities_obj, dict):
+                    city_activities = set(self._flatten_activities(city_activities_obj))
+                else:
+                    city_activities = set(city_activities_obj) if isinstance(city_activities_obj, list) else set()
+                
+                activity_match = user_activities & city_activities
+                if len(activity_match) > 0:
+                    user_score += 40 * (len(activity_match) / max(len(user_activities), 1))
+    
+                # Style match
+                user_style = set(user.get('style', []))
+                city_style_obj = city.get('style', {})
+                if isinstance(city_style_obj, dict):
+                    city_style = set(self._extract_style_tags(city_style_obj))
+                else:
+                    city_style = set(city_style_obj) if isinstance(city_style_obj, list) else set()
+                
+                style_match = user_style & city_style
+                if len(style_match) > 0:
+                    user_score += 30 * (len(style_match) / max(len(user_style), 1))
+    
+                normalized_score = min(100, user_score)
+    
+                if normalized_score >= 70:
+                    sentiment = "Perfect for"
+                elif normalized_score >= 50:
+                    sentiment = "Good for"
+                else:
+                    sentiment = "Compromise for"
+    
+                city_score += normalized_score
+                user_breakdown.append({
+                    "user_name": user.get('name', 'Anonymous'),
+                    "match_percentage": round(normalized_score, 1),
+                    "sentiment": sentiment
+                })
+    
+            avg_score = city_score / len(users_preferences) if users_preferences else 0
+    
+            scored_cities.append({
+                "city": city,
+                "score": avg_score,
+                "match_percentage": round(avg_score, 1),
+                "user_breakdown": user_breakdown,
+                "details": {
+                    "best_for": self._best_for(city, user_breakdown),
+                    "pros": self._city_pros(city, user_breakdown)
+                }
             })
-
-        avg_score = city_score / len(users_preferences) if users_preferences else 0
-
-        scored_cities.append({
-            "city": city,
-            "score": avg_score,
-            "match_percentage": round(avg_score, 1),
-            "user_breakdown": user_breakdown,
-            "details": {
-                "best_for": self._best_for(city, user_breakdown),
-                "pros": self._city_pros(city, user_breakdown)
-            }
-        })
-
-    scored_cities.sort(key=lambda x: x['score'], reverse=True)
-    return scored_cities[:5]
+    
+        scored_cities.sort(key=lambda x: x['score'], reverse=True)
+        return scored_cities[:5]
 
     def _extract_pros(self, region: Dict, user_breakdown: List[Dict]) -> List[str]:
         """Extract top pros for a region based on user breakdown"""
