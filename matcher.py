@@ -64,31 +64,27 @@ class TravelMatcher:
                     flat_list.extend(items)
         return flat_list
 
-    def _extract_style_tags(self, style_obj: Dict) -> List[str]:
-        """
-        Convert style scores to tags.
-        NEW DB: {"romantic_score": 95, "adventure_level": 80, "party_scene": 60}
-        Returns: ["romantic", "adventure"] (scores >= 75)
-        """
+    def _extract_style_tags(self, style_obj):
+        """Extract style tags from style object or list"""
         if isinstance(style_obj, list):
-            return style_obj  # Already a list
-        
-        tags = []
+            return style_obj
         if isinstance(style_obj, dict):
-            # Map score keys to simple tags
-            mappings = {
-                'romantic_score': 'romantic',
-                'adventure_level': 'adventure',
-                'party_scene': 'party',
-                'culture_richness': 'cultural',
-                'nature_immersion': 'nature',
-                'luxury_level': 'luxury'
-            }
-            for key, tag in mappings.items():
-                if style_obj.get(key, 0) >= 75:
-                    tags.append(tag)
-        return tags
-
+            tags = []
+            if style_obj.get('romantic_score', 0) >= 70:
+                tags.append('romantic')
+            if style_obj.get('adventure_level', 0) >= 70:
+                tags.append('adventure')
+            if style_obj.get('party_scene', 0) >= 70:
+                tags.append('party')
+            if style_obj.get('culture_richness', 0) >= 70:
+                tags.append('cultural')
+            if style_obj.get('nature_immersion', 0) >= 70:
+                tags.append('nature')
+            if style_obj.get('luxury_level', 0) >= 70:
+                tags.append('luxury')
+            return tags
+        return []
+    
     def _get_budget_range(self, budget_ranges_obj: Dict, user_budget: List[int]) -> List[int]:
         """
         Get appropriate budget range from new database structure.
