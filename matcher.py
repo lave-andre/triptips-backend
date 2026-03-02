@@ -399,14 +399,34 @@ class TravelMatcher:
         return cons[:2]
 
     def _best_for(self, city: Dict, user_breakdown: List[Dict]) -> str:
-        """Generate a short 'best for' description"""
-        tags = []
+    """Generate a short 'best for' description"""
+    tags = []
+    
+        # Handle style as dict (with scores) or list
         if city.get('style'):
-            tags.extend(city['style'][:2])
+            style = city['style']
+            if isinstance(style, dict):
+                # Convert scores to tags - pick top 2
+                style_tags = []
+                if style.get('romantic_score', 0) >= 70:
+                    style_tags.append('romantic')
+                if style.get('adventure_level', 0) >= 70:
+                    style_tags.append('adventure')
+                if style.get('party_scene', 0) >= 70:
+                    style_tags.append('party')
+                if style.get('culture_richness', 0) >= 70:
+                    style_tags.append('cultural')
+                if style.get('luxury_level', 0) >= 70:
+                    style_tags.append('luxury')
+                tags.extend(style_tags[:2])
+            elif isinstance(style, list):
+                tags.extend(style[:2])
+    
         if city.get('environment'):
             tags.extend(city['environment'][:1])
+        
         return f"{', '.join(tags)} seekers" if tags else "Versatile destination"
-
+    
     def _city_pros(self, city: Dict, user_breakdown: List[Dict]) -> List[str]:
         """Extract city pros"""
         pros = []
