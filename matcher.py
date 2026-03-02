@@ -418,10 +418,10 @@ class TravelMatcher:
             elif isinstance(style, list):
                 tags.extend(style[:2])
         
-            if city.get('environment'):
-                tags.extend(city['environment'][:1])
+        if city.get('environment'):
+            tags.extend(city['environment'][:1])
             
-            return f"{', '.join(tags)} seekers" if tags else "Versatile destination"
+        return f"{', '.join(tags)} seekers" if tags else "Versatile destination"
         
     def _city_pros(self, city: Dict, user_breakdown: List[Dict]) -> List[str]:
             """Extract city pros"""
