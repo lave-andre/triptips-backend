@@ -424,13 +424,13 @@ class TravelMatcher:
         return f"{', '.join(tags)} seekers" if tags else "Versatile destination"
         
     def _city_pros(self, city: Dict, user_breakdown: List[Dict]) -> List[str]:
-            """Extract city pros"""
-            pros = []
-            if city.get('environment'):
-                pros.append(f"{', '.join(city['environment'][:2])}")
-            if city.get('budget_range'):
-                pros.append(f"Budget: ${city['budget_range'][0]}-${city['budget_range'][1]}/day")
-            if user_breakdown:
-                good_count = sum(1 for u in user_breakdown if u['match_percentage'] >= 50)
-                pros.append(f"Matches {good_count}/{len(user_breakdown)} preferences")
-            return pros[:3]
+        """Extract city pros"""
+        pros = []
+        if city.get('environment'):
+            pros.append(f"{', '.join(city['environment'][:2])}")
+        if city.get('budget_range'):
+            pros.append(f"Budget: ${city['budget_range'][0]}-${city['budget_range'][1]}/day")
+        if user_breakdown:
+            good_count = sum(1 for u in user_breakdown if u['match_percentage'] >= 50)
+            pros.append(f"Matches {good_count}/{len(user_breakdown)} preferences")
+        return pros[:3]
