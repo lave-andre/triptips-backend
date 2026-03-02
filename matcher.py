@@ -423,7 +423,7 @@ class TravelMatcher:
             
             return f"{', '.join(tags)} seekers" if tags else "Versatile destination"
         
-        def _city_pros(self, city: Dict, user_breakdown: List[Dict]) -> List[str]:
+    def _city_pros(self, city: Dict, user_breakdown: List[Dict]) -> List[str]:
             """Extract city pros"""
             pros = []
             if city.get('environment'):
